@@ -44,6 +44,12 @@ class Test extends React.Component {
         />
         <button onClick={this.searchHandler}>Search</button>
         {/* <iframe src={`https://www.youtube.com/embed/` + this.state.query} /> */}
+        {/* <YouTube
+          video="ya-rr_Lm1N4"
+          height="315px"
+          width="540px"
+          autoplay="1"
+        /> */}
       </>
     );
   }
