@@ -6,6 +6,7 @@ import SearchBar from "./components/SearchBar";
 import Video from "./components/Video";
 import VideoGallery from "./components/VideoGallery";
 import ShowVideo from "./components/ShowVideo";
+import Nav from "./components/Nav";
 
 class App extends React.Component {
   constructor() {
@@ -40,6 +41,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Nav />
         <Routes>
           <Route
             path="/"
