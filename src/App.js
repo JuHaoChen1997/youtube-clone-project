@@ -1,20 +1,19 @@
-import './App.css'
-import React from 'react'
-// import Youtube from 'react-youtube'
-import { Routes, Route } from 'react-router-dom'
-import SearchBar from './components/SearchBar'
-// import Video from './components/Video'
-import VideoGallery from './components/VideoGallery'
-import ShowVideo from './components/ShowVideo'
-import Nav from './components/Nav'
-import About from './components/About'
+import "./App.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import SearchBar from "./components/SearchBar";
+import VideoGallery from "./components/VideoGallery";
+import ShowVideo from "./components/ShowVideo";
+import Nav from "./components/Nav";
+import About from "./components/About";
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       searchedYoutubeVideos: [],
-    }
+      comments: [],
+    };
   }
 
   fetchRequestHandler = (searchInput) => {
@@ -33,15 +32,25 @@ class App extends React.Component {
             title: video.snippet.title,
             thumbnails: video.snippet.thumbnails.high.url,
             videoId: video.id.videoId,
-          }
-        })
-        this.setState({ searchedYoutubeVideos: youtubeVideos })
-      })
-  }
+          };
+        });
+        this.setState({ searchedYoutubeVideos: youtubeVideos });
+      });
+  };
+
+  updateComments = (videoId, userName, userComment) => {
+    console.log("update comment");
+    const comment = { videoId, userName, userComment };
+
+    const copyOfComments = this.state.comments;
+    this.setState({
+      comments: [...copyOfComments, comment],
+    });
+  };
 
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <Nav />
         <Routes>
           <Route
@@ -60,6 +69,8 @@ class App extends React.Component {
             element={
               <ShowVideo
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
+                comments={this.state.comments}
+                updateComments={this.updateComments}
               />
             }
           />
