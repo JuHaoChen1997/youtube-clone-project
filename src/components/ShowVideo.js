@@ -5,8 +5,9 @@ class ShowVideo extends React.Component {
   constructor() {
     super()
     this.state = {
-      userInput: '',
+      userName: '',
       userComment: '',
+      comments: [],
     }
   }
   _onReady(event) {
@@ -14,11 +15,28 @@ class ShowVideo extends React.Component {
     event.target.pauseVideo()
   }
 
-  handleUserComment = (event) => {
-    console.log(event)
+  handleNameChange = (event) => {
+    const { value } = event.target
+    this.setState({ userName: value })
+  }
+
+  handleCommentChange = (event) => {
+    const { value } = event.target
+    this.setState({ userComment: value })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const { userName, userComment, comments } = this.state
+
+    this.setState({
+      comments: [...comments, <strong>{userName}</strong>, userComment],
+    })
   }
 
   render() {
+    const { userComment, userName, comments } = this.state
+
     const opts = {
       height: '390',
       width: '640',
@@ -32,23 +50,36 @@ class ShowVideo extends React.Component {
       <div>
         <YouTube videoId='eX2qFMC8cFo' opts={opts} onReady={this._onReady} />
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
+          Name
+          <br />
           <input
             id='text'
-            name='text'
+            name='name'
             type='text'
-            value={userInput}
-            onChange={this.handleUserName}
+            value={userName}
+            onChange={this.handleNameChange}
           />
+          <br />
+          <br />
+          Comments
+          <br />
           <input
             id='text'
             name='text'
             type='text'
             value={userComment}
-            onChange={this.handleUserComment}
+            onChange={this.handleCommentChange}
           />
-          {userInput}
-          {userComment}
+          <br />
+          <br />
+          <button>Submit</button>
+          {comments.map((comment, ind) => (
+            <p key={ind}>
+              {comment}
+              <br />
+            </p>
+          ))}
         </form>
       </div>
     )

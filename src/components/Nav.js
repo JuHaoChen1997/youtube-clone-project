@@ -1,7 +1,8 @@
 import React from "react";
+import About from './About'
 import "./Nav.css";
-import About from "./About";
 
+  
 class Nav extends React.Component {
   constructor() {
     super();
@@ -22,6 +23,7 @@ class Nav extends React.Component {
           <h2 className="home-button">Home</h2>
           <h2 className="about-button">About</h2>
         </div>
+        <About/>
       </main>
     );
   }
