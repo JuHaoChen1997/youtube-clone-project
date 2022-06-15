@@ -1,6 +1,9 @@
 import React from 'react';
 import './Nav.css';
 
+import { Link } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 class Nav extends React.Component {
   constructor() {
     super();
@@ -9,19 +12,25 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <main className='main'>
-        <div className='navbar'>
-          <img
-            src='./components/YTLOGO2.jpeg'
-            alt='Youtube Logo'
-            width='15'
-            height='15'
-          />
+      <Router>
+        <main className='main'>
+          <div className='navbar'>
+            <img
+              src='./components/YTLOGO2.jpeg'
+              alt='Youtube Logo'
+              width='15'
+              height='15'
+            />
 
-          <h2 className='home-button'>Home</h2>
-          <h2 className='about-button'>About</h2>
-        </div>
-      </main>
+            <Link to='/'>
+              <h2 className='home-button'>Home</h2>
+            </Link>
+            <Link to='/About'>
+              <h2 className='about-button'>About</h2>
+            </Link>
+          </div>
+        </main>
+      </Router>
     );
   }
 }
