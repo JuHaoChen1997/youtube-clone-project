@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react'
 import YouTube from 'react-youtube'
 =======
@@ -97,6 +98,29 @@ class ShowVideo extends React.Component {
     );
 >>>>>>> 8cf19fe1b41a95ff00e89fc998104321c5c8b0bc
   }
+=======
+import React from "react";
+import { useParams } from "react-router-dom";
+import Youtube from "react-youtube";
+import Comments from "./Comments";
+
+function ShowVideo(props) {
+  const videoId = useParams().id;
+  console.log("show video", props);
+  const { comments, updateComments } = props;
+
+  return (
+    <section>
+      {/* <iframe src={`https://www.youtube.com/embed/${videoId}`}></iframe> */}
+      <Youtube videoId={videoId} />
+      <Comments
+        videoId={videoId}
+        updateComments={updateComments}
+        comments={comments}
+      />
+    </section>
+  );
+>>>>>>> 97a3d64ad5ca1df24db6d90043fefa97798d5532
 }
 
 export default ShowVideo
