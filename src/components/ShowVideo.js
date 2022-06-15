@@ -1,6 +1,5 @@
 import React from 'react';
 import YouTube from 'react-youtube';
-import Nav from './Nav';
 
 class ShowVideo extends React.Component {
   _onReady(event) {
@@ -20,7 +19,6 @@ class ShowVideo extends React.Component {
 
     return (
       <div>
-        <Nav />
         <YouTube videoId='eX2qFMC8cFo' opts={opts} onReady={this._onReady} />
       </div>
     );

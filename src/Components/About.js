@@ -1,11 +1,11 @@
-import Nav from './Nav';
+import './About.css';
 function About() {
   return (
     <div>
-      <Nav />
       <section>
-        <p>project Description</p>
-        <p>
+        <h1 className='ProjectDesc'>Project Description</h1>
+
+        <p className='Entry1'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu
           felis sit amet felis tristique pharetra. Vivamus eu egestas magna.
           Suspendisse ut lacus felis. Sed sed ex vitae urna mollis consectetur
@@ -61,8 +61,12 @@ function About() {
         </p>
       </section>
       <article>
-        <p>juhao</p>
-        <a href={'https://github.com/JuHaoChen1997'}>GitHub</a>
+        <strong>
+          <p>Juhao Chen</p>
+        </strong>
+        <a className='Member1' href={'https://github.com/JuHaoChen1997'}>
+          Juhao's GitHub
+        </a>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu
           felis sit amet felis tristique pharetra. Vivamus eu egestas magna.
@@ -119,8 +123,12 @@ function About() {
         </p>
       </article>
       <article>
-        <p>herman</p>
-        <a href={' https://github.com/HC-Guerrero'}>GitHub</a>
+        <strong>
+          <p>Hermanclyde Guerrero</p>
+        </strong>
+        <a className='Member2' href={' https://github.com/HC-Guerrero'}>
+          Herman's GitHub
+        </a>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu
           felis sit amet felis tristique pharetra. Vivamus eu egestas magna.
@@ -177,8 +185,12 @@ function About() {
         </p>
       </article>
       <article>
-        <p>lily</p>
-        <a href={'https://github.com/liliwu8'}>GitHub</a>
+        <strong>
+          <p>Lily Wu</p>
+        </strong>
+        <a className='Member3' href={'https://github.com/liliwu8'}>
+          Lily's GitHub
+        </a>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu
           felis sit amet felis tristique pharetra. Vivamus eu egestas magna.

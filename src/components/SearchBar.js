@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
+import './SearchBar.css';
 
 class SearchBar extends React.Component {
   constructor() {
     super();
     this.state = {
-      searchInput: "",
+      searchInput: '',
     };
   }
 
@@ -18,9 +19,10 @@ class SearchBar extends React.Component {
     const { fetchRequestHandler } = this.props;
 
     return (
-      <section>
+      <section className='searchField'>
         <input
-          type="text"
+          className='textField'
+          type='text'
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
         />
@@ -28,6 +30,7 @@ class SearchBar extends React.Component {
           onClick={() => {
             fetchRequestHandler(this.state.searchInput);
           }}
+          classname='searchButton'
         >
           Search
         </button>
