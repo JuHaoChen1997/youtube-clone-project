@@ -69,9 +69,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+<<<<<<< HEAD
 
 lily 
+=======
+lily
+
+>>>>>>> a78e4ae30ac8fb0c336132811d2d79100c1bcf6d
 JuHao Chen
 
 Hermanclyde Guerrero
-

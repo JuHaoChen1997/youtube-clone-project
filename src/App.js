@@ -1,77 +1,70 @@
 import './App.css'
 import React from 'react'
+// import Youtube from 'react-youtube'
+import { Routes, Route } from 'react-router-dom'
+import SearchBar from './components/SearchBar'
+// import Video from './components/Video'
+import VideoGallery from './components/VideoGallery'
+import ShowVideo from './components/ShowVideo'
+import Nav from './components/Nav'
 import About from './components/About'
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      userName: '',
-      userComment: '',
-      comments: [],
+      searchedYoutubeVideos: [],
     }
   }
 
-  handleNameChange = (event) => {
-    const { value } = event.target
-    this.setState({ userName: value })
-  }
-
-  handleCommentChange = (event) => {
-    const { value } = event.target
-    this.setState({ userComment: value })
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault()
-    const { userName, userComment, comments } = this.state
-
-    this.setState({
-      comments: [...comments, (<strong>{userName}</strong>), userComment],
-    })
+  fetchRequestHandler = (searchInput) => {
+    let youtubeVideos = []
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=AIzaSyCpmUJbJ5kPdifR9m62nsOXYohK53HFlag&part=snippet`
+    )
+      .then((result) => {
+        return result.json()
+      })
+      .then((data) => {
+        const videos = data.items
+        console.log(videos)
+        youtubeVideos = videos.map((video) => {
+          return {
+            title: video.snippet.title,
+            thumbnails: video.snippet.thumbnails.high.url,
+            videoId: video.id.videoId,
+          }
+        })
+        this.setState({ searchedYoutubeVideos: youtubeVideos })
+      })
   }
 
   render() {
-    const { userComment, userName, comments } = this.state
-    console.log(userName)
     return (
       <div className='App'>
-        <main className='main'>
-          <div className='navbar'>
-            <h1 className='youtube-logo'>Youtube *Logo Goes Here*</h1>
-            <h2 className='home-button'>Home</h2>
-            <h2 className='about-button'>About</h2>
-          </div>
-          <About />
-          <form onSubmit={this.handleSubmit}>
-            Name
-            <br />
-            <input
-              id='text'
-              name='name'
-              type='text'
-              value={userName}
-              onChange={this.handleNameChange}
-            />
-            <br />
-            <br />
-            Comments
-            <br />
-            <input
-              id='text'
-              name='text'
-              type='text'
-              value={userComment}
-              onChange={this.handleCommentChange}
-            />
-            <br />
-            <br />
-            <button>Submit</button>
-            {comments.map((comment, ind) => (
-              <p key={ind}>{comment}<br/></p>
-            ))}
-          </form>
-        </main>
+        <Nav />
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <>
+                <SearchBar fetchRequestHandler={this.fetchRequestHandler} />
+                <VideoGallery
+                  searchedYoutubeVideos={this.state.searchedYoutubeVideos}
+                />
+              </>
+            }
+          />
+          <Route
+            path='/videos/:id'
+            element={
+              <ShowVideo
+                searchedYoutubeVideos={this.state.searchedYoutubeVideos}
+              />
+            }
+          />
+          <Route path='/About' element={<About />} />
+        </Routes>
       </div>
     )
   }
