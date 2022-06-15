@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './App.css'
 import React from 'react'
 // import Youtube from "react-youtube";
@@ -7,6 +8,18 @@ import SearchBar from './components/SearchBar'
 import VideoGallery from './components/VideoGallery'
 import ShowVideo from './components/ShowVideo'
 import Nav from './components/Nav'
+=======
+import "./App.css";
+import React from "react";
+import Youtube from "react-youtube";
+import { Routes, Route } from "react-router-dom";
+import SearchBar from "./components/SearchBar";
+import Video from "./components/Video";
+import VideoGallery from "./components/VideoGallery";
+import ShowVideo from "./components/ShowVideo";
+import Nav from "./components/Nav";
+import About from "./components/About";
+>>>>>>> 8cf19fe1b41a95ff00e89fc998104321c5c8b0bc
 
 class App extends React.Component {
   constructor() {
@@ -62,7 +75,11 @@ class App extends React.Component {
               />
             }
           />
+<<<<<<< HEAD
           <About />
+=======
+          <Route path="/About" element={<About />} />
+>>>>>>> 8cf19fe1b41a95ff00e89fc998104321c5c8b0bc
         </Routes>
       </div>
     )

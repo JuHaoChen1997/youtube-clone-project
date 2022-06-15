@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 import React from 'react'
 import YouTube from 'react-youtube'
+=======
+import React from 'react';
+import YouTube from 'react-youtube';
+import Nav from './Nav';
+>>>>>>> 8cf19fe1b41a95ff00e89fc998104321c5c8b0bc
 
 class ShowVideo extends React.Component {
   constructor() {
@@ -48,6 +54,7 @@ class ShowVideo extends React.Component {
 
     return (
       <div>
+<<<<<<< HEAD
         <YouTube videoId='eX2qFMC8cFo' opts={opts} onReady={this._onReady} />
 
         <form onSubmit={this.handleSubmit}>
@@ -83,6 +90,12 @@ class ShowVideo extends React.Component {
         </form>
       </div>
     )
+=======
+        <Nav />
+        <YouTube videoId='eX2qFMC8cFo' opts={opts} onReady={this._onReady} />
+      </div>
+    );
+>>>>>>> 8cf19fe1b41a95ff00e89fc998104321c5c8b0bc
   }
 }
 

@@ -60,7 +60,7 @@ function About() {
       </section>
       <article>
         <p>juhao</p>
-        <a href={'https://github.com/JuHaoChen1997'}>GitHub</a>
+        <a href={"https://github.com/JuHaoChen1997"}>GitHub</a>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu
           felis sit amet felis tristique pharetra. Vivamus eu egestas magna.
@@ -118,7 +118,7 @@ function About() {
       </article>
       <article>
         <p>herman</p>
-        <a href={' https://github.com/HC-Guerrero'}>GitHub</a>
+        <a href={" https://github.com/HC-Guerrero"}>GitHub</a>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu
           felis sit amet felis tristique pharetra. Vivamus eu egestas magna.
@@ -176,7 +176,7 @@ function About() {
       </article>
       <article>
         <p>lily</p>
-        <a href={'https://github.com/liliwu8'}>GitHub</a>
+        <a href={"https://github.com/liliwu8"}>GitHub</a>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu
           felis sit amet felis tristique pharetra. Vivamus eu egestas magna.
@@ -233,7 +233,7 @@ function About() {
         </p>
       </article>
     </div>
-  )
+  );
 }
 
-export default About
+export default About;
