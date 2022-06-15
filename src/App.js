@@ -70,7 +70,7 @@ class App extends React.Component {
               <ShowVideo
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
                 comments={this.state.comments}
-                updateComments={this.state.updateComments}
+                updateComments={this.updateComments}
               />
             }
           />

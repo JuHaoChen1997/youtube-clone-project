@@ -5,12 +5,16 @@ import Comments from "./Comments";
 function ShowVideo(props) {
   const videoId = useParams().id;
   console.log("show video", props);
-  const { updateComments } = props;
+  const { comments, updateComments } = props;
 
   return (
     <section>
       <iframe src={`https://www.youtube.com/embed/${videoId}`}></iframe>
-      <Comments videoId={videoId} updateComments={updateComments} />
+      <Comments
+        videoId={videoId}
+        updateComments={updateComments}
+        comments={comments}
+      />
     </section>
   );
 }
