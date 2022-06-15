@@ -1,6 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Nav from './Nav';
+import React from "react";
+import { Link } from "react-router-dom";
 
 class Video extends React.Component {
   render() {
@@ -9,7 +8,6 @@ class Video extends React.Component {
 
     return (
       <div>
-        <Nav />
         <p>video here {title}</p>
         <img src={thumbnails} alt={videoId} />
         <Link to={`/videos/${videoId}`}>

@@ -1,5 +1,4 @@
-import Video from './Video';
-import Nav from './Nav';
+import Video from "./Video";
 
 function VideoGallery(props) {
   const { searchedYoutubeVideos } = props;
@@ -7,12 +6,7 @@ function VideoGallery(props) {
     return <Video data={video} />;
   });
 
-  return (
-    <section>
-      <Nav />
-      {videoDisplay}
-    </section>
-  );
+  return <section>{videoDisplay}</section>;
 }
 
 export default VideoGallery;
