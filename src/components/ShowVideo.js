@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import Youtube from "react-youtube";
 import Comments from "./Comments";
 
 function ShowVideo(props) {
@@ -9,7 +10,8 @@ function ShowVideo(props) {
 
   return (
     <section>
-      <iframe src={`https://www.youtube.com/embed/${videoId}`}></iframe>
+      {/* <iframe src={`https://www.youtube.com/embed/${videoId}`}></iframe> */}
+      <Youtube videoId={videoId} />
       <Comments
         videoId={videoId}
         updateComments={updateComments}
