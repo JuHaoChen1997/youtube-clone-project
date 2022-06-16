@@ -1,11 +1,11 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Youtube from "react-youtube";
-import Comments from "./Comments";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Youtube from 'react-youtube';
+import Comments from './Comments';
 
 function ShowVideo(props) {
   const videoId = useParams().id;
-  console.log("show video", props);
+  console.log('show video', props);
   const { comments, updateComments } = props;
 
   return (

@@ -1,0 +1,10 @@
+.videoDisplay {
+   block-size: fit-content;
+    margin-top: 50px;
+    margin-left: 50px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-gap:20px 5px;
+    overflow-x: hidden;
+}
