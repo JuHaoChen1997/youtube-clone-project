@@ -6,7 +6,7 @@ import VideoGallery from './components/VideoGallery'
 import ShowVideo from './components/ShowVideo'
 import Nav from './components/Nav'
 import About from './components/About'
-// import Modal from './components/Modal'
+import Modal from './components/Modal'
 
 class App extends React.Component {
   constructor() {
@@ -14,6 +14,7 @@ class App extends React.Component {
     this.state = {
       searchedYoutubeVideos: [],
       comments: [],
+      show: false,
     }
   }
 
@@ -49,6 +50,14 @@ class App extends React.Component {
     })
   }
 
+  showModal = () => {
+    this.setState({ show: true })
+  }
+
+  closeButton = () => {
+    this.setState({ show: false })
+  }
+
   render() {
     return (
       <div className='App'>
@@ -78,8 +87,8 @@ class App extends React.Component {
           <Route path='/About' element={<About />} />
         </Routes>
         <br />
-        {/* <button>Show Modal</button>
-        <Modal /> */}
+        <button onClick={() => this.showModal()}>Show Modal</button>
+        <Modal show={this.state.show} closeButton={this.closeButton} />
       </div>
     )
   }
