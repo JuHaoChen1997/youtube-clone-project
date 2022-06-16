@@ -26,7 +26,7 @@ class App extends React.Component {
       })
       .then((data) => {
         const videos = data.items;
-        console.log(videos);
+        //console.log(videos);
         youtubeVideos = videos.map((video) => {
           return {
             title: video.snippet.title,
@@ -76,6 +76,9 @@ class App extends React.Component {
           />
           <Route path="/About" element={<About />} />
         </Routes>
+        {this.state.searchedYoutubeVideos.length === 0 ? (
+          <h2>No Search Results Yet!</h2>
+        ) : null}
       </div>
     );
   }
