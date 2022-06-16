@@ -1,28 +1,24 @@
 import React from 'react';
-import YouTube from 'react-youtube';
+import { useParams } from 'react-router-dom';
+import Youtube from 'react-youtube';
+import Comments from './Comments';
 
-class ShowVideo extends React.Component {
-  _onReady(event) {
-    // access to player in all event handlers via event.target
-    event.target.pauseVideo();
-  }
+function ShowVideo(props) {
+  const videoId = useParams().id;
+  console.log('show video', props);
+  const { comments, updateComments } = props;
 
-  render() {
-    const opts = {
-      height: '390',
-      width: '640',
-      playerVars: {
-        // https://developers.google.com/youtube/player_parameters
-        autoplay: 1,
-      },
-    };
-
-    return (
-      <div>
-        <YouTube videoId='eX2qFMC8cFo' opts={opts} onReady={this._onReady} />
-      </div>
-    );
-  }
+  return (
+    <section>
+      {/* <iframe src={`https://www.youtube.com/embed/${videoId}`}></iframe> */}
+      <Youtube videoId={videoId} />
+      <Comments
+        videoId={videoId}
+        updateComments={updateComments}
+        comments={comments}
+      />
+    </section>
+  );
 }
 
 export default ShowVideo;

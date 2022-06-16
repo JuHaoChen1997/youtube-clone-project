@@ -27,10 +27,11 @@ class SearchBar extends React.Component {
           onChange={this.updateSearchInputHandler}
         />
         <button
+          type='button'
+          className='searchButton'
           onClick={() => {
             fetchRequestHandler(this.state.searchInput);
           }}
-          classname='searchButton'
         >
           Search
         </button>

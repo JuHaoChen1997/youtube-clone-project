@@ -1,9 +1,7 @@
 import './App.css';
 import React from 'react';
-import Youtube from 'react-youtube';
 import { Routes, Route } from 'react-router-dom';
 import SearchBar from './components/SearchBar';
-import Video from './components/Video';
 import VideoGallery from './components/VideoGallery';
 import ShowVideo from './components/ShowVideo';
 import Nav from './components/Nav';
@@ -14,6 +12,7 @@ class App extends React.Component {
     super();
     this.state = {
       searchedYoutubeVideos: [],
+      comments: [],
     };
   }
 
@@ -39,6 +38,16 @@ class App extends React.Component {
       });
   };
 
+  updateComments = (videoId, userName, userComment) => {
+    console.log('update comment');
+    const comment = { videoId, userName, userComment };
+
+    const copyOfComments = this.state.comments;
+    this.setState({
+      comments: [...copyOfComments, comment],
+    });
+  };
+
   render() {
     return (
       <div className='App'>
@@ -60,6 +69,8 @@ class App extends React.Component {
             element={
               <ShowVideo
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
+                comments={this.state.comments}
+                updateComments={this.updateComments}
               />
             }
           />

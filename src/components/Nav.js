@@ -2,6 +2,7 @@ import React from 'react';
 import './Nav.css';
 
 import { Link } from 'react-router-dom';
+// import { BrowserRouter as Router } from 'react-router-dom';
 
 class Nav extends React.Component {
   constructor() {
@@ -14,10 +15,10 @@ class Nav extends React.Component {
       <main className='main'>
         <div className='navbar'>
           <img
-            src='./components/YTLOGO2.jpeg'
+            src='./logos/YTLOGO.png'
             alt='Youtube Logo'
-            width='15'
-            height='15'
+            width={70}
+            height={150}
           />
 
           <Link to='/'>
