@@ -21,6 +21,7 @@ class SearchBar extends React.Component {
       <section>
         <input
           type='text'
+          placeholder='Search...'
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
         />
