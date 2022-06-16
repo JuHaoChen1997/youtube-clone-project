@@ -21,4 +21,4 @@ function ShowVideo(props) {
   );
 }
 
-export default ShowVideo;
+export default ShowVideo

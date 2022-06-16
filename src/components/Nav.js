@@ -4,10 +4,11 @@ import './Nav.css';
 import { Link } from 'react-router-dom';
 // import { BrowserRouter as Router } from 'react-router-dom';
 
+
 class Nav extends React.Component {
   constructor() {
-    super();
-    this.state = {};
+    super()
+    this.state = {}
   }
 
   render() {
@@ -17,8 +18,8 @@ class Nav extends React.Component {
           <img
             src='./logos/YTLOGO.png'
             alt='Youtube Logo'
-            width={70}
-            height={150}
+            width={150}
+            height={100}
           />
 
           <Link to='/'>
@@ -29,7 +30,7 @@ class Nav extends React.Component {
           </Link>
         </div>
       </main>
-    );
+    )
   }
 }
-export default Nav;
+export default Nav
