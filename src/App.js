@@ -16,6 +16,11 @@ class App extends React.Component {
     };
   }
 
+  /**
+   *Update the App's state of searchedYoutubeVideos with the user's search result, the
+   search result is an array of video object data, contains video's id, title and thumbnail
+   * @param {String} searchInput - the search input user type in
+   */
   fetchRequestHandler = (searchInput) => {
     let youtubeVideos = [];
     fetch(
@@ -26,7 +31,6 @@ class App extends React.Component {
       })
       .then((data) => {
         const videos = data.items;
-        //console.log(videos);
         youtubeVideos = videos.map((video) => {
           return {
             title: video.snippet.title,
@@ -38,6 +42,12 @@ class App extends React.Component {
       });
   };
 
+  /**
+   *
+   * @param {String} videoId
+   * @param {String} userName
+   * @param {String} userComment
+   */
   updateComments = (videoId, userName, userComment) => {
     console.log("update comment");
     const comment = { videoId, userName, userComment };
@@ -77,7 +87,7 @@ class App extends React.Component {
           <Route path="/About" element={<About />} />
         </Routes>
         {this.state.searchedYoutubeVideos.length === 0 ? (
-          <h2>No Search Results Yet!</h2>
+          <h2 className="noSearch">No Search Results Yet!</h2>
         ) : null}
       </div>
     );

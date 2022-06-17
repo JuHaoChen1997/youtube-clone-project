@@ -11,12 +11,17 @@
 }
 .main{
     display: grid;
-    grid-template-areas: "header header header header header header"
+    grid-template-areas: "header header header header header header";
+    border: 1.5px solid black;
+    
     
    }
 .home-button{
+    padding-left: 25px;
     color: white;
+    text-decoration: black underline;
 }
 .about-button{
     color: white;
+    text-decoration: black underline;
 }
