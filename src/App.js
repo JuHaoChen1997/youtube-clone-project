@@ -1,11 +1,11 @@
-import "./App.css";
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import SearchBar from "./components/SearchBar";
-import VideoGallery from "./components/VideoGallery";
-import ShowVideo from "./components/ShowVideo";
-import Nav from "./components/Nav";
-import About from "./components/About";
+import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import SearchBar from './components/SearchBar';
+import VideoGallery from './components/VideoGallery';
+import ShowVideo from './components/ShowVideo';
+import Nav from './components/Nav';
+import About from './components/About';
 
 class App extends React.Component {
   constructor() {
@@ -19,7 +19,7 @@ class App extends React.Component {
   fetchRequestHandler = (searchInput) => {
     let youtubeVideos = [];
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=AIzaSyCpmUJbJ5kPdifR9m62nsOXYohK53HFlag&part=snippet`
+      `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=AIzaSyCpmUJbJ5kPdifR9m62nsOXYohK53HFlag&part=snippet`,
     )
       .then((result) => {
         return result.json();
@@ -39,7 +39,7 @@ class App extends React.Component {
   };
 
   updateComments = (videoId, userName, userComment) => {
-    console.log("update comment");
+    console.log('update comment');
     const comment = { videoId, userName, userComment };
 
     const copyOfComments = this.state.comments;
@@ -50,11 +50,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <Nav />
         <Routes>
           <Route
-            path="/"
+            path='/'
             element={
               <>
                 <SearchBar fetchRequestHandler={this.fetchRequestHandler} />
@@ -65,7 +65,7 @@ class App extends React.Component {
             }
           />
           <Route
-            path="/videos/:id"
+            path='/videos/:id'
             element={
               <ShowVideo
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
@@ -74,10 +74,10 @@ class App extends React.Component {
               />
             }
           />
-          <Route path="/About" element={<About />} />
+          <Route path='/About' element={<About />} />
         </Routes>
         {this.state.searchedYoutubeVideos.length === 0 ? (
-          <h2>No Search Results Yet!</h2>
+          <h2 className='noSearch'>No Search Results Yet!</h2>
         ) : null}
       </div>
     );

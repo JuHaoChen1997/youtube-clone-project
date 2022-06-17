@@ -33,3 +33,9 @@
   text-align: right;
   cursor: pointer;
 }
+.noSearch {
+  display: grid;
+  width: 450px;
+  background-color: lightslategray;
+
+}
