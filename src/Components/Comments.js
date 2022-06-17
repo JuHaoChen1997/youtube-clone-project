@@ -62,7 +62,7 @@ class Comments extends React.Component {
         <br />
         <button
           onClick={() => {
-            updateComments(videoId, this.state.userName, this.state.userComment)
+            updateComments(videoId, userName, userComment)
           }}
         >
           Submit
