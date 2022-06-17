@@ -1,13 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Youtube from "react-youtube";
-import Comments from "./Comments";
+// import Comments from "./Comments";
 import CommentSection from "./comments/CommentSection";
 
 function ShowVideo(props) {
   const videoId = useParams().id;
   console.log("show video", props);
-  const { comments, updateComments } = props;
+  // const { comments, updateComments } = props;
 
   return (
     <section>
