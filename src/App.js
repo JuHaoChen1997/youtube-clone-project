@@ -58,14 +58,15 @@ class App extends React.Component {
     })
   }
 
-  deleteComments = (userName, userComment) => {
-    console.log('dfdf')
-    const comment = { userName, userComment }
+  // deleteComment = (userName, userComment) => {
+  //   console.log('dfdf')
+  //   const comment = { userName, userComment }
 
-    this.setState({
-      comments: this.state.comments.filter((element) => element !== comment),
-    })
-  }
+  //   this.setState({
+  //     comments: this.state.comments.filter((element) => element !== comment),
+  //   })
+  //   console.log(this.state.comments)
+  // }
 
   render() {
     return (
@@ -90,7 +91,6 @@ class App extends React.Component {
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
                 comments={this.state.comments}
                 updateComments={this.updateComments}
-                deleteComments={this.deleteComments}
               />
             }
           />
