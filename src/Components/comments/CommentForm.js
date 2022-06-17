@@ -19,6 +19,13 @@ class CommentForm extends React.Component {
     this.setState({ userComment: value });
   };
 
+  clearInput = () => {
+    this.setState({
+      userName: "",
+      userComment: "",
+    });
+  };
+
   render() {
     const { userComment, userName } = this.state;
     const { updateCommentHandler } = this.props;
@@ -50,7 +57,12 @@ class CommentForm extends React.Component {
         />
         <br />
         <br />
-        <button onClick={() => updateCommentHandler(userName, userComment)}>
+        <button
+          onClick={() => {
+            updateCommentHandler(userName, userComment);
+            this.clearInput();
+          }}
+        >
           Submit
         </button>
       </div>
