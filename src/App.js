@@ -24,7 +24,7 @@ class App extends React.Component {
   fetchRequestHandler = (searchInput) => {
     let youtubeVideos = [];
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=AIzaSyCpmUJbJ5kPdifR9m62nsOXYohK53HFlag&part=snippet`
+      `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
     )
       .then((result) => {
         return result.json();
