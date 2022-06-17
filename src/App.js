@@ -49,6 +49,7 @@ class App extends React.Component {
    * @param {String} userComment
    */
   updateComments = (videoId, userName, userComment) => {
+    console.log("update comment");
     const comment = { videoId, userName, userComment };
 
     const copyOfComments = this.state.comments;
@@ -86,7 +87,7 @@ class App extends React.Component {
           <Route path="/About" element={<About />} />
         </Routes>
         {this.state.searchedYoutubeVideos.length === 0 ? (
-          <h2>No Search Results Yet!</h2>
+          <h2 className="noSearch">No Search Results Yet!</h2>
         ) : null}
       </div>
     );
