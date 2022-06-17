@@ -36,4 +36,6 @@
 .button {
   text-align: right;
   cursor: pointer;
+  font-family: sans-serif;
+  font-size: larger;
 }
