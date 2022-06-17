@@ -1,35 +1,19 @@
-<<<<<<< HEAD
 import './App.css'
 import React from 'react'
-// import Youtube from "react-youtube";
 import { Routes, Route } from 'react-router-dom'
 import SearchBar from './components/SearchBar'
-// import Video from "./components/Video";
 import VideoGallery from './components/VideoGallery'
 import ShowVideo from './components/ShowVideo'
 import Nav from './components/Nav'
-=======
-import "./App.css";
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import SearchBar from "./components/SearchBar";
-import VideoGallery from "./components/VideoGallery";
-import ShowVideo from "./components/ShowVideo";
-import Nav from "./components/Nav";
-import About from "./components/About";
->>>>>>> 8cf19fe1b41a95ff00e89fc998104321c5c8b0bc
+import About from './components/About'
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
       searchedYoutubeVideos: [],
-<<<<<<< HEAD
-    }
-=======
       comments: [],
-    };
->>>>>>> 97a3d64ad5ca1df24db6d90043fefa97798d5532
+    }
   }
 
   fetchRequestHandler = (searchInput) => {
@@ -42,7 +26,7 @@ class App extends React.Component {
       })
       .then((data) => {
         const videos = data.items
-        console.log(videos)
+        //console.log(videos);
         youtubeVideos = videos.map((video) => {
           return {
             title: video.snippet.title,
@@ -55,14 +39,23 @@ class App extends React.Component {
   }
 
   updateComments = (videoId, userName, userComment) => {
-    console.log("update comment");
-    const comment = { videoId, userName, userComment };
+    console.log('update comment')
+    const comment = { videoId, userName, userComment }
 
-    const copyOfComments = this.state.comments;
+    const copyOfComments = this.state.comments
     this.setState({
       comments: [...copyOfComments, comment],
-    });
-  };
+    })
+  }
+
+  deleteComments = (userName, userComment) => {
+    console.log('dfdf')
+    const comment = { userName, userComment }
+
+    this.setState({
+      comments: this.state.comments.filter((element) => element !== comment),
+    })
+  }
 
   render() {
     return (
@@ -87,15 +80,15 @@ class App extends React.Component {
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
                 comments={this.state.comments}
                 updateComments={this.updateComments}
+                deleteComments={this.deleteComments}
               />
             }
           />
-<<<<<<< HEAD
-          <About />
-=======
-          <Route path="/About" element={<About />} />
->>>>>>> 8cf19fe1b41a95ff00e89fc998104321c5c8b0bc
+          <Route path='/About' element={<About />} />
         </Routes>
+        {this.state.searchedYoutubeVideos.length === 0 ? (
+          <h2>No Search Results Yet!</h2>
+        ) : null}
       </div>
     )
   }

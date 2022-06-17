@@ -1,10 +1,13 @@
 import React from "react";
+import "./SearchBar.css";
+import Modal from "./Modal";
 
 class SearchBar extends React.Component {
   constructor() {
     super();
     this.state = {
       searchInput: "",
+      show: false,
     };
   }
 
@@ -14,23 +17,42 @@ class SearchBar extends React.Component {
     });
   };
 
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  closeButton = () => {
+    this.setState({ show: false });
+  };
+
+  checkSearchInput = () => {
+    return this.state.searchInput.length >= 20;
+  };
+
   render() {
     const { fetchRequestHandler } = this.props;
 
     return (
-      <section>
+      <section className="searchField">
         <input
+          className="textField"
           type="text"
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
         />
         <button
+          type="button"
+          className="searchButton"
           onClick={() => {
-            fetchRequestHandler(this.state.searchInput);
+            this.checkSearchInput()
+              ? this.showModal()
+              : fetchRequestHandler(this.state.searchInput);
           }}
         >
           Search
         </button>
+        {/* <button onClick={() => this.showModal()}>Show Modal</button> */}
+        <Modal show={this.state.show} closeButton={this.closeButton} />
       </section>
     );
   }

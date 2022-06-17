@@ -1,24 +1,24 @@
-import React from "react";
-import CommentsDispplay from "./CommentsDisplay";
+import React from 'react'
+import CommentsDispplay from './CommentsDisplay'
 
 class Comments extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
-      userName: "",
-      userComment: "",
-    };
+      userName: '',
+      userComment: '',
+    }
   }
 
   handleNameChange = (event) => {
-    const { value } = event.target;
-    this.setState({ userName: value });
-  };
+    const { value } = event.target
+    this.setState({ userName: value })
+  }
 
   handleCommentChange = (event) => {
-    const { value } = event.target;
-    this.setState({ userComment: value });
-  };
+    const { value } = event.target
+    this.setState({ userComment: value })
+  }
 
   //   handleSubmit = (event) => {
   //     event.preventDefault();
@@ -30,17 +30,19 @@ class Comments extends React.Component {
   //   };
 
   render() {
-    const { userComment, userName } = this.state;
-    const { videoId, updateComments, comments } = this.props;
+    const { userComment, userName } = this.state
+    const { videoId, updateComments, comments, deleteComments } = this.props
 
     return (
       <div>
+        <hr />
         Name
         <br />
         <input
-          id="text"
-          name="name"
-          type="text"
+          id='text'
+          name='name'
+          type='text'
+          placeholder='Name...'
           value={userName}
           onChange={this.handleNameChange}
         />
@@ -49,9 +51,10 @@ class Comments extends React.Component {
         Comments
         <br />
         <input
-          id="text"
-          name="text"
-          type="text"
+          id='text'
+          name='text'
+          type='text'
+          placeholder='...'
           value={userComment}
           onChange={this.handleCommentChange}
         />
@@ -59,19 +62,15 @@ class Comments extends React.Component {
         <br />
         <button
           onClick={() => {
-            updateComments(
-              videoId,
-              this.state.userName,
-              this.state.userComment
-            );
+            updateComments(videoId, this.state.userName, this.state.userComment)
           }}
         >
           Submit
         </button>
-        <CommentsDispplay videoId={videoId} comments={comments} />
+        <CommentsDispplay videoId={videoId} comments={comments} deleteComments={deleteComments } />
       </div>
-    );
+    )
   }
 }
 
-export default Comments;
+export default Comments

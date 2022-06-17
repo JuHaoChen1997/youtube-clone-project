@@ -1,0 +1,11 @@
+.video{
+  padding: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+align-content: center;
+}
+.thumbnails {
+  width: 75%;
+  height: 55%;
+text-align: center;
+}
