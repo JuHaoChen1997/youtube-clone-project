@@ -37,6 +37,7 @@ class SearchBar extends React.Component {
         <input
           className="textField"
           type="text"
+          placeholder="Search..."
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
         />

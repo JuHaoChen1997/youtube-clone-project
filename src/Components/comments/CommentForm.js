@@ -1,7 +1,6 @@
 import React from 'react'
-import CommentsDispplay from './CommentsDisplay'
 
-class Comments extends React.Component {
+class CommentForm extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -20,18 +19,14 @@ class Comments extends React.Component {
     this.setState({ userComment: value })
   }
 
-  //   handleSubmit = (event) => {
-  //     event.preventDefault();
-  //     const { userName, userComment, comments } = this.state;
-
-  //     this.setState({
-  //       comments: [...comments, <strong>{userName}</strong>, userComment],
-  //     });
-  //   };
+  clearInput = () => {
+    this.setState({ userName: '' })
+    this.setState({ userComment: '' })
+  }
 
   render() {
     const { userComment, userName } = this.state
-    const { videoId, updateComments, comments, deleteComments } = this.props
+    const { updateCommentHandler } = this.props
 
     return (
       <div>
@@ -62,15 +57,15 @@ class Comments extends React.Component {
         <br />
         <button
           onClick={() => {
-            updateComments(videoId, userName, userComment)
+            updateCommentHandler(userName, userComment)
+            this.clearInput(userName, userComment)
           }}
         >
           Submit
         </button>
-        <CommentsDispplay videoId={videoId} comments={comments} deleteComments={deleteComments } />
       </div>
     )
   }
 }
 
-export default Comments
+export default CommentForm
