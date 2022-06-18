@@ -26,12 +26,14 @@ class CommentSection extends React.Component {
     }
   }
 
+ 
+
   render() {
     const { comments } = this.state
     return (
       <section>
         <CommentForm updateCommentHandler={this.updateCommentHandler} />
-        <CommentFeed comments={comments} />
+        <CommentFeed comments={comments}  />
       </section>
     )
   }

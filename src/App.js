@@ -1,11 +1,11 @@
 import './App.css'
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import SearchBar from './components/SearchBar'
-import VideoGallery from './components/VideoGallery'
-import ShowVideo from './components/ShowVideo'
-import Nav from './components/Nav'
-import About from './components/About'
+import SearchBar from './Components/SearchBar'
+import VideoGallery from './Components/VideoGallery'
+import ShowVideo from './Components/ShowVideo'
+import Nav from './Components/Nav'
+import About from './Components/About'
 
 class App extends React.Component {
   constructor() {
@@ -58,14 +58,6 @@ class App extends React.Component {
     })
   }
 
-  deleteComments = (videoId, userName, userComment) => {
-    // const comment = { videoId, userName, userComment }
-
-    // const copyOfComments = this.state.comments
-
-    //  [...copyOfComments, comment]
-  }
-
   render() {
     return (
       <div className='App'>
@@ -89,6 +81,7 @@ class App extends React.Component {
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
                 comments={this.state.comments}
                 updateComments={this.updateComments}
+                deleteComment={this.deleteComment}
               />
             }
           />

@@ -8,7 +8,6 @@ function ShowVideo(props) {
   const videoId = useParams().id;
   console.log("show video", props);
   // const { comments, updateComments } = props;
-
   return (
     <section>
       {/* <iframe src={`https://www.youtube.com/embed/${videoId}`}></iframe> */}
@@ -18,7 +17,7 @@ function ShowVideo(props) {
         updateComments={updateComments}
         comments={comments}
       /> */}
-      <CommentSection videoId={videoId} />
+      <CommentSection videoId={videoId}  />
     </section>
   );
 }
