@@ -47,7 +47,11 @@ class CommentSection extends React.Component {
     this.setState({ comments: newComments });
   };
 
-  deleteCommentHandler = (index) => {};
+  deleteCommentHandler = (index) => {
+    const copyOfComments = this.state.comments;
+    copyOfComments.splice(index, 1);
+    this.setState({ comments: copyOfComments });
+  };
 
   componentDidMount() {
     const commentsAtLocalStorage = JSON.parse(
@@ -70,7 +74,10 @@ class CommentSection extends React.Component {
     return (
       <section>
         <CommentForm updateCommentHandler={this.updateCommentHandler} />
-        <CommentFeed comments={comments} />
+        <CommentFeed
+          comments={comments}
+          deleteCommentHandler={this.deleteCommentHandler}
+        />
       </section>
     );
   }
