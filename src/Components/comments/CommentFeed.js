@@ -1,13 +1,10 @@
+import Comment from "./Comment";
+
 function CommentFeed(props) {
   const { comments } = props;
 
-  const displayComments = comments.map((comment) => {
-    return (
-      <div>
-        <h4>UserName: {comment.userName}</h4>
-        <p>Comment: {comment.comment}</p>
-      </div>
-    );
+  const displayComments = comments.map((comment, index) => {
+    return <Comment comment={comment} />;
   });
   return <section>{displayComments}</section>;
 }
