@@ -5,7 +5,7 @@ import SearchBar from "./components/SearchBar";
 import VideoGallery from "./components/VideoGallery";
 import ShowVideo from "./components/ShowVideo";
 import Nav from "./components/Nav";
-import About from "./components/About";
+// import About from "./components/About";
 
 class App extends React.Component {
   constructor() {
@@ -89,7 +89,7 @@ class App extends React.Component {
               />
             }
           />
-          <Route path="/About" element={<About />} />
+          {/* <Route path="/About" element={<About />} /> */}
         </Routes>
       </div>
     );
