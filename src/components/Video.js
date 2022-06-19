@@ -9,9 +9,8 @@ class Video extends React.Component {
 
     return (
       <div classname='video'>
-        <p>video here {title}</p>
-        <img className='thumbnails' src={thumbnails} alt={videoId} />
         <Link to={`/videos/${videoId}`}>
+          <img className='thumbnails' src={thumbnails} alt={videoId} />
           <p>{title}</p>
         </Link>
       </div>
