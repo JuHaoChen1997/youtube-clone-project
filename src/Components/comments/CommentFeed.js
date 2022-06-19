@@ -1,12 +1,16 @@
-function CommentFeed(props) {
-  const { comments, deleteComment } = props
+import Comment from './Comment'
 
-  const displayComments = comments.map((comment) => {
+function CommentFeed(props) {
+  const { comments, deleteCommentHandler, editComment } = props
+
+  const displayComments = comments.map((comment, index) => {
     return (
-      <div>
-        <h4>UserName: {comment.userName}</h4>
-        <p>Comment: {comment.comment}</p>
-      </div>
+      <Comment
+        comment={comment}
+        index={index}
+        deleteCommentHandler={deleteCommentHandler}
+        editComment={editComment}
+      />
     )
   })
   return <section>{displayComments}</section>

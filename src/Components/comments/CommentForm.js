@@ -20,8 +20,10 @@ class CommentForm extends React.Component {
   }
 
   clearInput = () => {
-    this.setState({ userName: '' })
-    this.setState({ userComment: '' })
+    this.setState({
+      userName: '',
+      userComment: '',
+    })
   }
 
   render() {
@@ -58,7 +60,7 @@ class CommentForm extends React.Component {
         <button
           onClick={() => {
             updateCommentHandler(userName, userComment)
-            this.clearInput(userName, userComment)
+            this.clearInput()
           }}
         >
           Submit

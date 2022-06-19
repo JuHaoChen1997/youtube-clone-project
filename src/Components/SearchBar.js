@@ -29,13 +29,6 @@ class SearchBar extends React.Component {
     return this.state.searchInput.length >= 20
   }
 
-  // handleKeyPress = (e) => {
-  //   let key = e.key
-  //   console.log(key)
-  //   if (key === 'enter') {
-  //     this.updateSearchInputHandler()
-  //   }
-  // }
   render() {
     const { fetchRequestHandler } = this.props
 
@@ -47,9 +40,6 @@ class SearchBar extends React.Component {
           placeholder='Search...'
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
-          // onKeyDown={() => {
-          //   this.handleKeyPress && fetchRequestHandler(this.state.searchInput)
-          // }}
         />
         <button
           type='button'
