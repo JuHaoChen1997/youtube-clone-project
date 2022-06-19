@@ -1,6 +1,7 @@
 import React from "react";
 import CommentForm from "./CommentForm";
 import CommentFeed from "./CommentFeed";
+import "./CommentSection.css";
 
 class CommentSection extends React.Component {
   constructor() {
@@ -80,7 +81,8 @@ class CommentSection extends React.Component {
   render() {
     const { comments } = this.state;
     return (
-      <section>
+      <section className="commentSection">
+        <h2>{comments.length} Comments</h2>
         <CommentForm updateCommentHandler={this.updateCommentHandler} />
         <CommentFeed
           comments={comments}

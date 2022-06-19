@@ -1,4 +1,5 @@
 import React from "react";
+import "./CommentForm.css";
 
 class CommentForm extends React.Component {
   constructor() {
@@ -31,32 +32,29 @@ class CommentForm extends React.Component {
     const { updateCommentHandler } = this.props;
 
     return (
-      <div>
-        <hr />
-        Name
-        <br />
-        <input
-          id="text"
-          name="name"
-          type="text"
-          placeholder="Name..."
-          value={userName}
-          onChange={this.handleNameChange}
-        />
-        <br />
-        <br />
-        Comments
-        <br />
-        <input
-          id="text"
-          name="text"
-          type="text"
-          placeholder="..."
-          value={userComment}
-          onChange={this.handleCommentChange}
-        />
-        <br />
-        <br />
+      <section className="commentForm">
+        <div>
+          <label for="name">Name </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Name..."
+            value={userName}
+            onChange={this.handleNameChange}
+          />
+        </div>
+        <div>
+          <label for="comment">Comment </label>
+          <input
+            id="comment"
+            name="comment"
+            type="text"
+            placeholder="..."
+            value={userComment}
+            onChange={this.handleCommentChange}
+          />
+        </div>
         <button
           onClick={() => {
             updateCommentHandler(userName, userComment);
@@ -65,7 +63,7 @@ class CommentForm extends React.Component {
         >
           Submit
         </button>
-      </div>
+      </section>
     );
   }
 }
