@@ -1,6 +1,7 @@
 import React from "react";
 import CommentForm from "./CommentForm";
 import CommentFeed from "./CommentFeed";
+import "./CommentSection.css";
 
 class CommentSection extends React.Component {
   constructor() {
@@ -10,14 +11,55 @@ class CommentSection extends React.Component {
     };
   }
 
+  getTime = () => {
+    const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
+    const today = new Date();
+
+    const weekday = weekdays[today.getDay()];
+    const year = today.getFullYear();
+    const month = months[today.getMonth()];
+    const date = today.getDate();
+    const hour = today.getHours();
+    const minute = today.getMinutes();
+    const second = today.getSeconds();
+
+    return `${weekday} ${month}-${date}-${year} ${hour}:${minute}:${second}`;
+  };
+
   updateCommentHandler = (userName, comment) => {
-    const userComment = { userName, comment };
+    const timeStamp = this.getTime();
+    const userComment = { userName, comment, timeStamp };
     const newComments = [...this.state.comments, userComment];
-    window.localStorage.setItem(
-      this.props.videoId,
-      JSON.stringify(newComments)
-    );
     this.setState({ comments: newComments });
+  };
+
+  deleteCommentHandler = (index) => {
+    const copyOfComments = this.state.comments;
+    copyOfComments.splice(index, 1);
+    this.setState({ comments: copyOfComments });
+  };
+
+  editCommentHandler = (index, editComment) => {
+    const copyOfComments = this.state.comments;
+    const selectedComment = copyOfComments[index];
+    selectedComment.comment = editComment;
+
+    this.setState({ comments: copyOfComments });
   };
 
   componentDidMount() {
@@ -29,12 +71,24 @@ class CommentSection extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    window.localStorage.setItem(
+      this.props.videoId,
+      JSON.stringify(this.state.comments)
+    );
+  }
+
   render() {
     const { comments } = this.state;
     return (
-      <section>
+      <section className="commentSection">
+        <h2>{comments.length} Comments</h2>
         <CommentForm updateCommentHandler={this.updateCommentHandler} />
-        <CommentFeed comments={comments} />
+        <CommentFeed
+          comments={comments}
+          deleteCommentHandler={this.deleteCommentHandler}
+          editCommentHandler={this.editCommentHandler}
+        />
       </section>
     );
   }
