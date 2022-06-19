@@ -1,11 +1,11 @@
-import './App.css'
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import SearchBar from './components/SearchBar'
-import VideoGallery from './components/VideoGallery'
-import ShowVideo from './components/ShowVideo'
-import Nav from './components/Nav'
-import About from './components/About'
+import "./App.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import SearchBar from "./Components/SearchBar";
+import VideoGallery from "./Components/VideoGallery";
+import ShowVideo from "./Components/ShowVideo";
+import Nav from "./Components/Nav";
+import About from "./Components/About";
 
 class App extends React.Component {
   constructor() {
@@ -22,25 +22,29 @@ class App extends React.Component {
    * @param {String} searchInput - the search input user type in
    */
   fetchRequestHandler = (searchInput) => {
-    let youtubeVideos = []
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
-    )
-      .then((result) => {
-        return result.json()
-      })
-      .then((data) => {
-        const videos = data.items;
-        youtubeVideos = videos.map((video) => {
-          return {
-            title: video.snippet.title,
-            thumbnails: video.snippet.thumbnails.high.url,
-            videoId: video.id.videoId,
-          }
+    let youtubeVideos = [];
+    if (searchInput !== "") {
+      fetch(
+        `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
+      )
+        .then((result) => {
+          return result.json();
         })
-        this.setState({ searchedYoutubeVideos: youtubeVideos })
-      })
-  }
+        .then((data) => {
+          const videos = data.items;
+          youtubeVideos = videos.map((video) => {
+            return {
+              title: video.snippet.title,
+              thumbnails: video.snippet.thumbnails.high.url,
+              videoId: video.id.videoId,
+            };
+          });
+          this.setState({ searchedYoutubeVideos: youtubeVideos });
+        });
+    } else {
+      this.setState({ searchedYoutubeVideos: [] });
+    }
+  };
 
   /**
    *
@@ -96,9 +100,6 @@ class App extends React.Component {
           />
           <Route path='/About' element={<About />} />
         </Routes>
-        {this.state.searchedYoutubeVideos.length === 0 ? (
-          <h2 className="noSearch">No Search Results Yet!</h2>
-        ) : null}
       </div>
     )
   }
