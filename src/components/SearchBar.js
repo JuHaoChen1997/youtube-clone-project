@@ -1,6 +1,7 @@
 import React from "react";
 import "./SearchBar.css";
 import Modal from "./Modal";
+import { Hint } from "react-autocomplete-hint";
 
 class SearchBar extends React.Component {
   constructor() {
@@ -40,6 +41,7 @@ class SearchBar extends React.Component {
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
         />
+        <Hint options={fetchRequestHandler(this.state.searchInput)}/>
         <button
           type="button"
           className="searchButton"
