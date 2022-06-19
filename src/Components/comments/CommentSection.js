@@ -53,6 +53,14 @@ class CommentSection extends React.Component {
     this.setState({ comments: copyOfComments });
   };
 
+  editCommentHandler = (index, editComment) => {
+    const copyOfComments = this.state.comments;
+    const selectedComment = copyOfComments[index];
+    selectedComment.comment = editComment;
+
+    this.setState({ comments: copyOfComments });
+  };
+
   componentDidMount() {
     const commentsAtLocalStorage = JSON.parse(
       window.localStorage.getItem(this.props.videoId)
@@ -77,6 +85,7 @@ class CommentSection extends React.Component {
         <CommentFeed
           comments={comments}
           deleteCommentHandler={this.deleteCommentHandler}
+          editCommentHandler={this.editCommentHandler}
         />
       </section>
     );
