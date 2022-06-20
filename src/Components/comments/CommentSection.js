@@ -54,11 +54,6 @@ class CommentSection extends React.Component {
     this.setState({ comments: copyOfComments })
   }
 
-  editComment = (index) => {
-    console.log("ediitng")
-    // let finding = this.state.comments.find((element) => element === index)
-    // this.setState({ comments: finding, edit:true })
-  }
 
   componentDidMount() {
     const commentsAtLocalStorage = JSON.parse(
@@ -84,7 +79,6 @@ class CommentSection extends React.Component {
         <CommentFeed
           comments={comments}
           deleteCommentHandler={this.deleteCommentHandler}
-          editComment={this.editComment}
         />
       </section>
     )

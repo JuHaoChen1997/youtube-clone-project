@@ -8,7 +8,7 @@ class Comment extends React.Component {
 
   render() {
     const { userName, comment, timeStamp } = this.props.comment
-    const { index, deleteCommentHandler, editComment } = this.props
+    const { index, deleteCommentHandler } = this.props
 
     return (
       <section>
@@ -22,7 +22,6 @@ class Comment extends React.Component {
         >
           Delete
         </button>
-        <button onClick={() => editComment()}>Edit</button>
       </section>
     )
   }
