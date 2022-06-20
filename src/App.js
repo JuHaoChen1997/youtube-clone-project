@@ -1,11 +1,11 @@
-import "./App.css";
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import SearchBar from "./components/SearchBar";
-import VideoGallery from "./components/VideoGallery";
-import ShowVideo from "./components/ShowVideo";
-import Nav from "./components/Nav";
-import About from "./components/About";
+import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import SearchBar from './components/SearchBar';
+import VideoGallery from './components/VideoGallery';
+import ShowVideo from './components/ShowVideo';
+import Nav from './components/Nav';
+import About from './components/About';
 
 class App extends React.Component {
   constructor() {
@@ -23,10 +23,10 @@ class App extends React.Component {
    */
   fetchRequestHandler = (searchInput) => {
     let youtubeVideos = [];
-    if (searchInput !== "") {
+    if (searchInput !== '') {
       fetch(
         // `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
-        `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=AIzaSyCpmUJbJ5kPdifR9m62nsOXYohK53HFlag&part=snippet`
+        `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=AIzaSyCpmUJbJ5kPdifR9m62nsOXYohK53HFlag&part=snippet`,
       )
         .then((result) => {
           return result.json();
@@ -54,7 +54,7 @@ class App extends React.Component {
    * @param {String} userComment
    */
   updateComments = (videoId, userName, userComment) => {
-    console.log("update comment");
+    console.log('update comment');
     const comment = { videoId, userName, userComment };
 
     const copyOfComments = this.state.comments;
@@ -65,11 +65,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <Nav />
         <Routes>
           <Route
-            path="/"
+            path='/'
             element={
               <>
                 <SearchBar fetchRequestHandler={this.fetchRequestHandler} />
@@ -80,16 +80,17 @@ class App extends React.Component {
             }
           />
           <Route
-            path="/videos/:id"
+            path='/videos/:id'
             element={
               <ShowVideo
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
                 comments={this.state.comments}
                 updateComments={this.updateComments}
+                deleteComment={this.deleteComment}
               />
             }
           />
-          <Route path="/About" element={<About />} />
+          <Route path='/About' element={<About />} />
         </Routes>
       </div>
     );

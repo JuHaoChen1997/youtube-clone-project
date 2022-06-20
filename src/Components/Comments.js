@@ -31,7 +31,7 @@ class Comments extends React.Component {
 
   render() {
     const { userComment, userName } = this.state
-    const { videoId, updateComments, comments } = this.props
+    const { videoId, updateComments, comments, deleteComments } = this.props
 
     return (
       <div>
@@ -67,7 +67,7 @@ class Comments extends React.Component {
         >
           Submit
         </button>
-        <CommentsDispplay videoId={videoId} comments={comments} />
+        <CommentsDispplay videoId={videoId} comments={comments} deleteComments={deleteComments } />
       </div>
     )
   }
