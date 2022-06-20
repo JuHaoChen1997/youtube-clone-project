@@ -1,34 +1,34 @@
-import React from "react";
+import React from 'react'
 
 class CommentForm extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
-      userName: "",
-      userComment: "",
-    };
+      userName: '',
+      userComment: '',
+    }
   }
 
   handleNameChange = (event) => {
-    const { value } = event.target;
-    this.setState({ userName: value });
-  };
+    const { value } = event.target
+    this.setState({ userName: value })
+  }
 
   handleCommentChange = (event) => {
-    const { value } = event.target;
-    this.setState({ userComment: value });
-  };
+    const { value } = event.target
+    this.setState({ userComment: value })
+  }
 
   clearInput = () => {
     this.setState({
-      userName: "",
-      userComment: "",
-    });
-  };
+      userName: '',
+      userComment: '',
+    })
+  }
 
   render() {
-    const { userComment, userName } = this.state;
-    const { updateCommentHandler } = this.props;
+    const { userComment, userName } = this.state
+    const { updateCommentHandler } = this.props
 
     return (
       <div>
@@ -36,10 +36,10 @@ class CommentForm extends React.Component {
         Name
         <br />
         <input
-          id="text"
-          name="name"
-          type="text"
-          placeholder="Name..."
+          id='text'
+          name='name'
+          type='text'
+          placeholder='Name...'
           value={userName}
           onChange={this.handleNameChange}
         />
@@ -48,10 +48,10 @@ class CommentForm extends React.Component {
         Comments
         <br />
         <input
-          id="text"
-          name="text"
-          type="text"
-          placeholder="..."
+          id='text'
+          name='text'
+          type='text'
+          placeholder='...'
           value={userComment}
           onChange={this.handleCommentChange}
         />
@@ -59,15 +59,15 @@ class CommentForm extends React.Component {
         <br />
         <button
           onClick={() => {
-            updateCommentHandler(userName, userComment);
-            this.clearInput();
+            updateCommentHandler(userName, userComment)
+            this.clearInput()
           }}
         >
           Submit
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default CommentForm;
+export default CommentForm

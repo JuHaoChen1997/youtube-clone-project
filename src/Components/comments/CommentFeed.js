@@ -1,15 +1,18 @@
-function CommentFeed(props) {
-  const { comments } = props;
+import Comment from './Comment'
 
-  const displayComments = comments.map((comment) => {
+function CommentFeed(props) {
+  const { comments, deleteCommentHandler } = props
+
+  const displayComments = comments.map((comment, index) => {
     return (
-      <div>
-        <h4>UserName: {comment.userName}</h4>
-        <p>Comment: {comment.comment}</p>
-      </div>
-    );
-  });
-  return <section>{displayComments}</section>;
+      <Comment
+        comment={comment}
+        index={index}
+        deleteCommentHandler={deleteCommentHandler}
+      />
+    )
+  })
+  return <section>{displayComments}</section>
 }
 
-export default CommentFeed;
+export default CommentFeed

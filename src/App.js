@@ -1,19 +1,19 @@
 import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import SearchBar from "./components/SearchBar";
-import VideoGallery from "./components/VideoGallery";
-import ShowVideo from "./components/ShowVideo";
-import Nav from "./components/Nav";
-import About from "./components/About";
+import SearchBar from "./Components/SearchBar";
+import VideoGallery from "./Components/VideoGallery";
+import ShowVideo from "./Components/ShowVideo";
+import Nav from "./Components/Nav";
+import About from "./Components/About";
 
 class App extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
       searchedYoutubeVideos: [],
       comments: [],
-    };
+    }
   }
 
   /**
@@ -54,22 +54,24 @@ class App extends React.Component {
    * @param {String} userComment
    */
   updateComments = (videoId, userName, userComment) => {
-    console.log("update comment");
-    const comment = { videoId, userName, userComment };
+    console.log('update comment')
+    const comment = { videoId, userName, userComment }
 
-    const copyOfComments = this.state.comments;
+    const copyOfComments = this.state.comments
     this.setState({
       comments: [...copyOfComments, comment],
-    });
-  };
+    })
+  }
+
+ 
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <Nav />
         <Routes>
           <Route
-            path="/"
+            path='/'
             element={
               <>
                 <SearchBar fetchRequestHandler={this.fetchRequestHandler} />
@@ -80,20 +82,21 @@ class App extends React.Component {
             }
           />
           <Route
-            path="/videos/:id"
+            path='/videos/:id'
             element={
               <ShowVideo
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
                 comments={this.state.comments}
                 updateComments={this.updateComments}
+                deleteComment={this.deleteComment}
               />
             }
           />
-          <Route path="/About" element={<About />} />
+          <Route path='/About' element={<About />} />
         </Routes>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
