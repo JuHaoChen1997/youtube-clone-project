@@ -1,17 +1,17 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Youtube from "react-youtube";
 import CommentSection from "./comments/CommentSection";
+import VideoDetail from "./VideoDetail";
 
 function ShowVideo(props) {
   const videoId = useParams().id;
-  console.log("show video", props);
+
   return (
     <section>
-      <Youtube videoId={videoId} />
+      <VideoDetail videoId={videoId} />
       <CommentSection videoId={videoId} />
     </section>
-  )
+  );
 }
 
-export default ShowVideo
+export default ShowVideo;
