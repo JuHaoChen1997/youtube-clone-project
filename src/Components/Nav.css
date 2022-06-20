@@ -12,6 +12,8 @@
   display: grid;
   grid-template-areas: 'header header header header header header';
   border: 1.5px solid black;
+  position: sticky;
+  top: 0;
 }
 .home-button {
   padding-left: 25px;
