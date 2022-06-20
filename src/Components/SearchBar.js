@@ -7,6 +7,7 @@ class SearchBar extends React.Component {
     super();
     this.state = {
       searchInput: "",
+      videoNums: "10",
       show: false,
     };
   }
@@ -18,6 +19,12 @@ class SearchBar extends React.Component {
   updateSearchInputHandler = (event) => {
     this.setState({
       searchInput: event.target.value,
+    });
+  };
+
+  updateVideoNumHandler = (event) => {
+    this.setState({
+      videoNums: event.target.value,
     });
   };
 
@@ -45,6 +52,16 @@ class SearchBar extends React.Component {
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
         />
+        <label htmlFor="searchNum">Video Nums</label>
+        <input
+          type="number"
+          id="searchNum"
+          name="searchNum"
+          min="5"
+          max="30"
+          value={this.state.videoNums}
+          onChange={this.updateVideoNumHandler}
+        />
         <button
           type="button"
           className="searchButton"
@@ -52,7 +69,7 @@ class SearchBar extends React.Component {
             if (this.checkSearchInput()) {
               this.showModal();
             } else {
-              fetchRequestHandler(this.state.searchInput);
+              fetchRequestHandler(this.state.searchInput, this.state.videoNums);
               this.clearInput();
             }
           }}

@@ -9,11 +9,11 @@ import About from "./Components/About";
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       searchedYoutubeVideos: [],
       comments: [],
-    }
+    };
   }
 
   /**
@@ -21,12 +21,13 @@ class App extends React.Component {
    search result is an array of video object data, contains video's id, title and thumbnail
    * @param {String} searchInput - the search input user type in
    */
-  fetchRequestHandler = (searchInput) => {
+  fetchRequestHandler = (searchInput, videoNum) => {
     let youtubeVideos = [];
+
     if (searchInput !== "") {
       fetch(
         // `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
-        `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=AIzaSyCpmUJbJ5kPdifR9m62nsOXYohK53HFlag&part=snippet`
+        `https://youtube.googleapis.com/youtube/v3/search?maxResults=${videoNum}&q=${searchInput}&key=AIzaSyCpmUJbJ5kPdifR9m62nsOXYohK53HFlag&part=snippet`
       )
         .then((result) => {
           return result.json();
@@ -54,24 +55,22 @@ class App extends React.Component {
    * @param {String} userComment
    */
   updateComments = (videoId, userName, userComment) => {
-    console.log('update comment')
-    const comment = { videoId, userName, userComment }
+    console.log("update comment");
+    const comment = { videoId, userName, userComment };
 
-    const copyOfComments = this.state.comments
+    const copyOfComments = this.state.comments;
     this.setState({
       comments: [...copyOfComments, comment],
-    })
-  }
-
- 
+    });
+  };
 
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <Nav />
         <Routes>
           <Route
-            path='/'
+            path="/"
             element={
               <>
                 <SearchBar fetchRequestHandler={this.fetchRequestHandler} />
@@ -82,7 +81,7 @@ class App extends React.Component {
             }
           />
           <Route
-            path='/videos/:id'
+            path="/videos/:id"
             element={
               <ShowVideo
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
@@ -92,11 +91,11 @@ class App extends React.Component {
               />
             }
           />
-          <Route path='/About' element={<About />} />
+          <Route path="/About" element={<About />} />
         </Routes>
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;

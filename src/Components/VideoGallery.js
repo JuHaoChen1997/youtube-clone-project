@@ -3,8 +3,8 @@ import "./VideoGallery.css";
 
 function VideoGallery(props) {
   const { searchedYoutubeVideos } = props;
-  const videoDisplay = searchedYoutubeVideos.map((video) => {
-    return <Video data={video} />;
+  const videoDisplay = searchedYoutubeVideos.map((video, index) => {
+    return <Video data={video} key={index} />;
   });
 
   return (
