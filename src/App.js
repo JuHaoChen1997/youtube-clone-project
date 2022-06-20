@@ -6,13 +6,13 @@ import VideoGallery from "./Components/VideoGallery";
 import ShowVideo from "./Components/ShowVideo";
 import Nav from "./Components/Nav";
 import About from "./Components/About";
+import Error from "./Components/Error";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       searchedYoutubeVideos: [],
-      comments: [],
     };
   }
 
@@ -92,6 +92,7 @@ class App extends React.Component {
             }
           />
           <Route path="/About" element={<About />} />
+          <Route path="/:error" element={<Error />} />
         </Routes>
       </div>
     );

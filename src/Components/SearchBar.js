@@ -52,16 +52,6 @@ class SearchBar extends React.Component {
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
         />
-        <label htmlFor="searchNum">Video Nums</label>
-        <input
-          type="number"
-          id="searchNum"
-          name="searchNum"
-          min="5"
-          max="30"
-          value={this.state.videoNums}
-          onChange={this.updateVideoNumHandler}
-        />
         <button
           type="button"
           className="searchButton"
@@ -76,6 +66,16 @@ class SearchBar extends React.Component {
         >
           Search
         </button>
+        <label htmlFor="searchNum">Video Nums</label>
+        <input
+          type="number"
+          id="searchNum"
+          name="searchNum"
+          min="5"
+          max="30"
+          value={this.state.videoNums}
+          onChange={this.updateVideoNumHandler}
+        />
         {/* <button onClick={() => this.showModal()}>Show Modal</button> */}
         <Modal show={this.state.show} closeButton={this.closeButton} />
       </section>
