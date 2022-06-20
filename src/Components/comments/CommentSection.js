@@ -8,6 +8,7 @@ class CommentSection extends React.Component {
     super();
     this.state = {
       comments: [],
+      edit: true,
     };
   }
 

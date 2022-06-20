@@ -6,13 +6,12 @@ import CommentSection from "./comments/CommentSection";
 function ShowVideo(props) {
   const videoId = useParams().id;
   console.log("show video", props);
-
   return (
     <section>
       <Youtube videoId={videoId} />
       <CommentSection videoId={videoId} />
     </section>
-  );
+  )
 }
 
-export default ShowVideo;
+export default ShowVideo
