@@ -6,16 +6,27 @@ class SearchBar extends React.Component {
   constructor() {
     super()
     this.state = {
-      searchInput: '',
+      searchInput: "",
+      videoNums: "10",
       show: false,
     }
   }
+
+  clearInput = () => {
+    this.setState({ searchInput: "" });
+  };
 
   updateSearchInputHandler = (event) => {
     this.setState({
       searchInput: event.target.value,
     })
   }
+
+  updateVideoNumHandler = (event) => {
+    this.setState({
+      videoNums: event.target.value,
+    });
+  };
 
   showModal = () => {
     this.setState({ show: true })
@@ -35,8 +46,9 @@ class SearchBar extends React.Component {
     return (
       <section className='searchField'>
         <input
-          className='textField'
-          type='text'
+          className="textField"
+          type="text"
+          placeholder="Search..."
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
           autofill={true}
@@ -45,13 +57,26 @@ class SearchBar extends React.Component {
           type='button'
           className='searchButton'
           onClick={() => {
-            this.checkSearchInput()
-              ? this.showModal()
-              : fetchRequestHandler(this.state.searchInput)
+            if (this.checkSearchInput()) {
+              this.showModal();
+            } else {
+              fetchRequestHandler(this.state.searchInput, this.state.videoNums);
+              this.clearInput();
+            }
           }}
         >
           Search
         </button>
+        <label htmlFor="searchNum">Video Nums</label>
+        <input
+          type="number"
+          id="searchNum"
+          name="searchNum"
+          min="5"
+          max="30"
+          value={this.state.videoNums}
+          onChange={this.updateVideoNumHandler}
+        />
         {/* <button onClick={() => this.showModal()}>Show Modal</button> */}
         <Modal show={this.state.show} closeButton={this.closeButton} />
       </section>

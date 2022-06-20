@@ -8,7 +8,7 @@ class Video extends React.Component {
     const { title, thumbnails, videoId } = this.props.data;
 
     return (
-      <div classname="video">
+      <div className="video">
         <Link to={`/videos/${videoId}`}>
           <img className="thumbnails" src={thumbnails} alt={videoId} />
           <p>{title}</p>
