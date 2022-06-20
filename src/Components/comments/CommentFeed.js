@@ -1,7 +1,7 @@
-import Comment from './Comment'
+import Comment from "./Comment";
 
 function CommentFeed(props) {
-  const { comments, deleteCommentHandler } = props
+  const { comments, deleteCommentHandler, editCommentHandler } = props;
 
   const displayComments = comments.map((comment, index) => {
     return (
@@ -9,10 +9,11 @@ function CommentFeed(props) {
         comment={comment}
         index={index}
         deleteCommentHandler={deleteCommentHandler}
+        editCommentHandler={editCommentHandler}
       />
-    )
-  })
-  return <section>{displayComments}</section>
+    );
+  });
+  return <section>{displayComments}</section>;
 }
 
-export default CommentFeed
+export default CommentFeed;

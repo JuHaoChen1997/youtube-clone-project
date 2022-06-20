@@ -1,14 +1,21 @@
-import React from 'react'
+import React from "react";
+import Edit from "./Edit";
 
 class Comment extends React.Component {
   constructor() {
-    super()
-    this.state = {}
+    super();
+    this.state = { edit: false };
   }
 
+  editHandler = () => {
+    this.setState({
+      edit: !this.state.edit,
+    });
+  };
+
   render() {
-    const { userName, comment, timeStamp } = this.props.comment
-    const { index, deleteCommentHandler } = this.props
+    const { userName, comment, timeStamp } = this.props.comment;
+    const { index, deleteCommentHandler, editCommentHandler } = this.props;
 
     return (
       <section>
@@ -17,14 +24,20 @@ class Comment extends React.Component {
         <p>Comment: {comment}</p>
         <button
           onClick={() => {
-            deleteCommentHandler(index)
+            deleteCommentHandler(index);
           }}
         >
           Delete
         </button>
+        <button onClick={this.editHandler}>
+          {this.state.edit ? "Close Edit" : "Edit"}
+        </button>
+        {this.state.edit ? (
+          <Edit index={index} editCommentHandler={editCommentHandler} />
+        ) : null}
       </section>
-    )
+    );
   }
 }
 
-export default Comment
+export default Comment;
