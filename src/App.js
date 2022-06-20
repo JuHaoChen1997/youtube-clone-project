@@ -23,23 +23,28 @@ class App extends React.Component {
    */
   fetchRequestHandler = (searchInput) => {
     let youtubeVideos = [];
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=AIzaSyCpmUJbJ5kPdifR9m62nsOXYohK53HFlag&part=snippet`
-    )
-      .then((result) => {
-        return result.json();
-      })
-      .then((data) => {
-        const videos = data.items;
-        youtubeVideos = videos.map((video) => {
-          return {
-            title: video.snippet.title,
-            thumbnails: video.snippet.thumbnails.high.url,
-            videoId: video.id.videoId,
-          };
+    if (searchInput !== "") {
+      fetch(
+        // `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
+        `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=AIzaSyCpmUJbJ5kPdifR9m62nsOXYohK53HFlag&part=snippet`
+      )
+        .then((result) => {
+          return result.json();
+        })
+        .then((data) => {
+          const videos = data.items;
+          youtubeVideos = videos.map((video) => {
+            return {
+              title: video.snippet.title,
+              thumbnails: video.snippet.thumbnails.high.url,
+              videoId: video.id.videoId,
+            };
+          });
+          this.setState({ searchedYoutubeVideos: youtubeVideos });
         });
-        this.setState({ searchedYoutubeVideos: youtubeVideos });
-      });
+    } else {
+      this.setState({ searchedYoutubeVideos: [] });
+    }
   };
 
   /**
@@ -86,9 +91,6 @@ class App extends React.Component {
           />
           <Route path="/About" element={<About />} />
         </Routes>
-        {this.state.searchedYoutubeVideos.length === 0 ? (
-          <h2 className="noSearch">No Search Results Yet!</h2>
-        ) : null}
       </div>
     );
   }

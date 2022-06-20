@@ -11,7 +11,7 @@ class Video extends React.Component {
       <div classname='video'>
         <Link to={`/videos/${videoId}`}>
           <img className='thumbnails' src={thumbnails} alt={videoId} />
-          <p>{title}</p>
+          <p className='vidName'>{title}</p>
         </Link>
       </div>
     );

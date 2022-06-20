@@ -7,7 +7,18 @@ function VideoGallery(props) {
     return <Video data={video} />;
   });
 
-  return <section className='videoDisplay'>{videoDisplay}</section>;
+  return (
+    <>
+      <section className='noSearch'>
+        {searchedYoutubeVideos.length === 0 ? (
+          <strong>
+            <p>No videos searched yet!</p>
+          </strong>
+        ) : null}
+      </section>
+      <section className='videoDisplay'>{videoDisplay}</section>
+    </>
+  );
 }
 
 export default VideoGallery;

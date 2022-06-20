@@ -8,3 +8,14 @@
     grid-gap:20px 5px;
     overflow-x: hidden;
 }
+.noSearch{
+    display: grid;
+    text-align: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 475px;
+    width: 450px;
+    background-color: lightslategray;
+    color: black;
+ 
+}
