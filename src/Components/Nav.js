@@ -24,7 +24,6 @@ class Nav extends React.Component {
               height={75}
             />
           </Link>
-
           <Link to='/'>
             <h2 className='home-button'>Home</h2>
           </Link>

@@ -40,14 +40,12 @@
     grid-auto-flow: column;
     box-shadow: 20px 10px 20px 10px gray;
 }
-
-
-.main{
-    display: grid;
-    grid-template-areas: "header header header header header header";
-    border: 1.5px solid black;
-    position: sticky;
-    top:5px;
+.main {
+  display: grid;
+  grid-template-areas: 'header header header header header header';
+  border: 1.5px solid black;
+  position: sticky;
+  top: 0;
 }
 
 .home-button{
