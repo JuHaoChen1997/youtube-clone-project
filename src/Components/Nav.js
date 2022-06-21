@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-import React from 'react';
-import './Nav.css';
-import DarkMode from './DarkMode';
-import { Link } from 'react-router-dom';
-=======
 import React from "react";
 import "./Nav.css";
 import DarkMode from "./DarkMode";
 
 import { Link } from "react-router-dom";
->>>>>>> main
 
 class Nav extends React.Component {
   constructor() {
