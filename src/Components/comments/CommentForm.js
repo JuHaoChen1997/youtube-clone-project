@@ -1,4 +1,5 @@
 import React from 'react';
+import './CommentForm.css';
 
 class CommentForm extends React.Component {
   constructor() {
@@ -55,6 +56,7 @@ class CommentForm extends React.Component {
           />
         </div>
         <button
+          className='commentButton'
           onClick={() => {
             updateCommentHandler(userName, userComment);
             this.clearInput();

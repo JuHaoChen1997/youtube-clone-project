@@ -11,7 +11,7 @@ function VideoGallery(props) {
     <>
       <section className='noSearch'>
         {searchedYoutubeVideos.length === 0 ? (
-          <strong>
+          <strong className='strong'>
             <p>No videos searched yet!</p>
           </strong>
         ) : null}

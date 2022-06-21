@@ -1,6 +1,24 @@
-.noSearch {
-  display: grid;
-  width: 450px;
-  background-color: lightslategray;
+:root{
+    --primary-color: white;
+    --secondary-color: #191919;
+}
+.dark-theme{ 
+    --primary-color: #000106;
+    --secondary-color: #fff;
+}
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+}
+body.light{
+    --background-color: var(--primary-color);
+    --text-color: var(--secondary-color);
+}
+body.dark {
+    --background-color: var(--secondary-color);
+    --text-color: var(--primary-color);
+}
 
+.app{
+background-color: var(--primary-color);
 }

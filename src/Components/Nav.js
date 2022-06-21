@@ -1,7 +1,8 @@
-import React from "react";
-import "./Nav.css";
+import React from 'react';
+import DarkMode from './DarkMode';
+import './Nav.css';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 // import { BrowserRouter as Router } from 'react-router-dom';
 
 class Nav extends React.Component {
@@ -12,26 +13,29 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <main className="main">
-        <div className="navbar">
-          <Link to="/">
+      <main className='main'>
+        <div className='navbar'>
+          <Link to='/'>
             <img
-              src="./logos/YTLOGO.png"
-              alt="Youtube Logo"
+              className='logo'
+              src='./logos/YTLOGO.png'
+              alt='Youtube Logo'
               width={150}
               height={75}
             />
           </Link>
 
-          <Link to="/">
-            <h2 className="home-button">Home</h2>
+          <Link to='/'>
+            <h2 className='home-button'>Home</h2>
           </Link>
-          <Link to="/About">
-            <h2 className="about-button">About</h2>
+          <Link to='/About'>
+            <h2 className='about-button'>About</h2>
           </Link>
+          <DarkMode />
         </div>
       </main>
     );
   }
 }
+
 export default Nav;

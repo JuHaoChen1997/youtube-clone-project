@@ -1,24 +1,24 @@
-import React from 'react'
-import CommentsDispplay from './CommentsDisplay'
+import React from 'react';
+import CommentsDisplay from './CommentsDisplay';
 
 class Comments extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       userName: '',
       userComment: '',
-    }
+    };
   }
 
   handleNameChange = (event) => {
-    const { value } = event.target
-    this.setState({ userName: value })
-  }
+    const { value } = event.target;
+    this.setState({ userName: value });
+  };
 
   handleCommentChange = (event) => {
-    const { value } = event.target
-    this.setState({ userComment: value })
-  }
+    const { value } = event.target;
+    this.setState({ userComment: value });
+  };
 
   //   handleSubmit = (event) => {
   //     event.preventDefault();
@@ -30,8 +30,8 @@ class Comments extends React.Component {
   //   };
 
   render() {
-    const { userComment, userName } = this.state
-    const { videoId, updateComments, comments, deleteComments } = this.props
+    const { userComment, userName } = this.state;
+    const { videoId, updateComments, comments, deleteComments } = this.props;
 
     return (
       <div>
@@ -62,15 +62,19 @@ class Comments extends React.Component {
         <br />
         <button
           onClick={() => {
-            updateComments(videoId, userName, userComment)
+            updateComments(videoId, userName, userComment);
           }}
         >
           Submit
         </button>
-        <CommentsDispplay videoId={videoId} comments={comments} deleteComments={deleteComments } />
+        <CommentsDisplay
+          videoId={videoId}
+          comments={comments}
+          deleteComments={deleteComments}
+        />
       </div>
-    )
+    );
   }
 }
 
-export default Comments
+export default Comments;

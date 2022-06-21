@@ -1,12 +1,16 @@
 .ProjectDesc{
     text-align:center;
+    color: var(--secondary-color)
 }
 .Member1{
     font-style: italic;
+    color: var(--secondary-color)
 }
 .Member2{
     font-style:italic; 
+    color: var(--secondary-color)
 }
 .Member3{
     font-style: italic;
+    color: var(--secondary-color)
 }

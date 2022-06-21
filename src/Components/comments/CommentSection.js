@@ -1,7 +1,7 @@
-import React from "react";
-import CommentForm from "./CommentForm";
-import CommentFeed from "./CommentFeed";
-import "./CommentSection.css";
+import React from 'react';
+import CommentForm from './CommentForm';
+import CommentFeed from './CommentFeed';
+import './CommentSection.css';
 
 class CommentSection extends React.Component {
   constructor() {
@@ -13,20 +13,20 @@ class CommentSection extends React.Component {
   }
 
   getTime = () => {
-    const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
     ];
 
     const today = new Date();
@@ -65,7 +65,7 @@ class CommentSection extends React.Component {
 
   componentDidMount() {
     const commentsAtLocalStorage = JSON.parse(
-      window.localStorage.getItem(this.props.videoId)
+      window.localStorage.getItem(this.props.videoId),
     );
     if (commentsAtLocalStorage !== null) {
       this.setState({ comments: commentsAtLocalStorage });
@@ -75,14 +75,14 @@ class CommentSection extends React.Component {
   componentDidUpdate() {
     window.localStorage.setItem(
       this.props.videoId,
-      JSON.stringify(this.state.comments)
+      JSON.stringify(this.state.comments),
     );
   }
 
   render() {
     const { comments } = this.state;
     return (
-      <section className="commentSection">
+      <section className='commentSection'>
         <h2>{comments.length} Comments</h2>
         <CommentForm updateCommentHandler={this.updateCommentHandler} />
         <CommentFeed
