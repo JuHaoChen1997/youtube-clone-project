@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 import React from 'react';
 import './Nav.css';
 import DarkMode from './DarkMode';
 import { Link } from 'react-router-dom';
+=======
+import React from "react";
+import "./Nav.css";
+import DarkMode from "./DarkMode";
+
+import { Link } from "react-router-dom";
+>>>>>>> main
 
 class Nav extends React.Component {
   constructor() {
@@ -11,22 +19,22 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <main className='main'>
-        <div className='navbar'>
-          <Link to='/'>
+      <main className="main">
+        <div className="navbar">
+          <Link to="/">
             <img
-              className='logo'
-              src='./logos/YTLOGO.png'
-              alt='Youtube Logo'
+              className="logo"
+              src="./logos/YTLOGO.png"
+              alt="Youtube Logo"
               width={150}
               height={75}
             />
           </Link>
-          <Link to='/'>
-            <h2 className='home-button'>Home</h2>
+          <Link to="/">
+            <h2 className="home-button">Home</h2>
           </Link>
-          <Link to='/About'>
-            <h2 className='about-button'>About</h2>
+          <Link to="/About">
+            <h2 className="about-button">About</h2>
           </Link>
           <DarkMode />
         </div>
