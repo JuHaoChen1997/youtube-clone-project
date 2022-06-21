@@ -67,7 +67,9 @@ class SearchBar extends React.Component {
         >
           Search
         </button>
-        <label htmlFor="searchNum">Video Nums</label>
+        <label id="videoNums" htmlFor="searchNum">
+          Video Nums:
+        </label>
         <input
           type="number"
           id="searchNum"
