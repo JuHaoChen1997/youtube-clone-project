@@ -3,7 +3,6 @@ import './Nav.css';
 import DarkMode from './DarkMode';
 
 import { Link } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 class Nav extends React.Component {
   constructor() {
