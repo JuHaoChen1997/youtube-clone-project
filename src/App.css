@@ -15,12 +15,7 @@ body.dark {
     --background-color: var(--secondary-color);
     --text-color: var(--primary-color);
 }
-.a.dark {
-    --text-color: var(--primary-color)
-}
-.vidName.dark{
-    color: var(--pimary-color);
-}
+
 .app{
 background-color: var(--primary-color);
 }
