@@ -8,18 +8,24 @@ class Edit extends React.Component {
     };
   }
 
+  /**
+   *
+   * change the state into the user's input edit message
+   */
   inputHandler = (event) => {
     this.setState({
       input: event.target.value,
     });
   };
 
+  //clear the the state's input value
   clearInput = () => {
     this.setState({ input: "" });
   };
 
   render() {
     const { index, editCommentHandler } = this.props;
+
     return (
       <div>
         <input

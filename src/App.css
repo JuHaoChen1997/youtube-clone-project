@@ -1,3 +1,9 @@
+.noSearch {
+  display: grid;
+  width: 450px;
+  background-color: lightslategray;
+}
+
 :root{
     --primary-color: white;
     --secondary-color: #191919;

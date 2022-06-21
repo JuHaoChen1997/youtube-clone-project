@@ -1,12 +1,12 @@
-import './App.css';
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import SearchBar from './Components/SearchBar';
-import VideoGallery from './Components/VideoGallery';
-import ShowVideo from './Components/ShowVideo';
-import Nav from './Components/Nav';
-import About from './Components/About';
-import Error from './Components/Error';
+import "./App.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import SearchBar from "./Components/SearchBar";
+import VideoGallery from "./Components/VideoGallery";
+import ShowVideo from "./Components/ShowVideo";
+import Nav from "./Components/Nav";
+import About from "./Components/About";
+import Error from "./Components/Error";
 
 class App extends React.Component {
   constructor() {
@@ -24,10 +24,9 @@ class App extends React.Component {
   fetchRequestHandler = (searchInput, videoNum) => {
     let youtubeVideos = [];
 
-    if (searchInput !== '') {
+    if (searchInput !== "") {
       fetch(
-        // `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
-        `https://youtube.googleapis.com/youtube/v3/search?maxResults=${videoNum}&q=${searchInput}&key=${process.env.REACT_APP_API_KEY}&part=snippet`,
+        `https://youtube.googleapis.com/youtube/v3/search?maxResults=${videoNum}&q=${searchInput}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
       )
         .then((result) => {
           return result.json();
@@ -42,35 +41,22 @@ class App extends React.Component {
             };
           });
           this.setState({ searchedYoutubeVideos: youtubeVideos });
+        })
+        .catch((error) => {
+          console.log(error);
         });
     } else {
       this.setState({ searchedYoutubeVideos: [] });
     }
   };
 
-  /**
-   *
-   * @param {String} videoId
-   * @param {String} userName
-   * @param {String} userComment
-   */
-  updateComments = (videoId, userName, userComment) => {
-    console.log('update comment');
-    const comment = { videoId, userName, userComment };
-
-    const copyOfComments = this.state.comments;
-    this.setState({
-      comments: [...copyOfComments, comment],
-    });
-  };
-
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <Nav />
         <Routes>
           <Route
-            path='/'
+            path="/"
             element={
               <>
                 <SearchBar fetchRequestHandler={this.fetchRequestHandler} />
@@ -81,18 +67,15 @@ class App extends React.Component {
             }
           />
           <Route
-            path='/videos/:id'
+            path="/videos/:id"
             element={
               <ShowVideo
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
-                comments={this.state.comments}
-                updateComments={this.updateComments}
-                deleteComment={this.deleteComment}
               />
             }
           />
-          <Route path='/About' element={<About />} />
-          <Route path='/:error' element={<Error />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/:error" element={<Error />} />
         </Routes>
       </div>
     );
