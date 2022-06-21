@@ -41,26 +41,13 @@ class App extends React.Component {
             };
           });
           this.setState({ searchedYoutubeVideos: youtubeVideos });
+        })
+        .catch((error) => {
+          console.log(error);
         });
     } else {
       this.setState({ searchedYoutubeVideos: [] });
     }
-  };
-
-  /**
-   *
-   * @param {String} videoId
-   * @param {String} userName
-   * @param {String} userComment
-   */
-  updateComments = (videoId, userName, userComment) => {
-    console.log("update comment");
-    const comment = { videoId, userName, userComment };
-
-    const copyOfComments = this.state.comments;
-    this.setState({
-      comments: [...copyOfComments, comment],
-    });
   };
 
   render() {
@@ -84,9 +71,6 @@ class App extends React.Component {
             element={
               <ShowVideo
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
-                comments={this.state.comments}
-                updateComments={this.updateComments}
-                deleteComment={this.deleteComment}
               />
             }
           />
