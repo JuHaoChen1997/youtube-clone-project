@@ -23,13 +23,13 @@ class Comment extends React.Component {
 
     return (
       <section className="commentBox">
-        <h4>
+        <h4 className="time">
           <span>Post Time:</span> {timeStamp}
         </h4>
-        <h4>
+        <h4 className="userName">
           <span>UserName:</span> {userName}
         </h4>
-        <p>
+        <p className="comment">
           <span>Comment: </span>
           {comment}
         </p>

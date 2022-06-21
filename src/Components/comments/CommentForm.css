@@ -28,7 +28,12 @@
     font-size: 28px;
 }
 
-input{
+.nameInputBar{
+    height:30px;
+    width: 400px;
+}
+
+.commentInputBar{
     height:30px;
     width: 400px;
 }

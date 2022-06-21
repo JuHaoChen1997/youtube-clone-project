@@ -47,6 +47,7 @@ class CommentForm extends React.Component {
             Name{" "}
           </label>
           <input
+            className="nameInputBar"
             id="name"
             name="name"
             type="text"
@@ -60,6 +61,7 @@ class CommentForm extends React.Component {
             Comment{" "}
           </label>
           <input
+            className="commentInputBar"
             id="comment"
             name="comment"
             type="text"
