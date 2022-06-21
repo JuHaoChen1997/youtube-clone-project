@@ -116,7 +116,7 @@ class CommentSection extends React.Component {
 
     return (
       <section className="commentSection">
-        <h2>{comments.length} Comments</h2>
+        <h2 className="numOfComments">{comments.length} Comments</h2>
         <CommentForm updateCommentHandler={this.updateCommentHandler} />
         <CommentFeed
           comments={comments}

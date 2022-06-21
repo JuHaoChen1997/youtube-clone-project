@@ -23,14 +23,13 @@ class Comment extends React.Component {
         <h4>UserName: {userName}</h4>
         <p>Comment: {comment}</p>
         <button
-          className="commentButton"
           onClick={() => {
             deleteCommentHandler(index);
           }}
         >
           Delete
         </button>
-        <button className="commentButton" onClick={this.editHandler}>
+        <button onClick={this.editHandler}>
           {this.state.edit ? "Close Edit" : "Edit"}
         </button>
         {this.state.edit ? (

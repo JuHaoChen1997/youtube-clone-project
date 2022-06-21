@@ -14,3 +14,24 @@
 .commentButton:hover{
     transform: skewX(-25deg);
 }
+
+.commentForm{
+    border: 2px solid burlywood;
+    margin:auto;
+    width:90%
+}
+
+.name,.comment{
+    margin-left: 20px;
+    padding-top: 10px;
+    font-size: 28px;
+}
+
+input{
+    height:30px;
+    width: 400px;
+}
+
+.commentButton{
+    margin-left: 20px;
+}
