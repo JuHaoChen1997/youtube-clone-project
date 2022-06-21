@@ -1,0 +1,34 @@
+.switchPage {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 350px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.prevPage, .currentPage, .nextPage {
+    border: 1px solid black;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    padding-top:10px;
+    background-color: aqua;
+}
+
+.prevPage:hover{
+    color: white;
+    transform: scale(1.1) skewX(25deg);
+    transition-duration: 1.5s;
+}
+
+.currentPage:hover{
+    color:white;
+    transform: scale(1.2);
+    transition-duration: 1.5s;
+}
+
+ .nextPage:hover{
+    color: white;
+    transform:  scale(1.1) skewX(-25deg);
+    transition-duration: 1.5s;
+}

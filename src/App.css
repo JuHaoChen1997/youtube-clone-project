@@ -2,10 +2,7 @@
     --primary-color: white;
     --secondary-color: #191919;
 }
-.dark-theme{ 
-    --primary-color: #000106;
-    --secondary-color: #fff;
-}
+
 body {
     background: var(--background-color);
     color: var(--text-color);

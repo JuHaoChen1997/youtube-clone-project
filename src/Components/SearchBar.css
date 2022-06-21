@@ -1,3 +1,17 @@
+@keyframes videoNums-pulse{
+    0% {
+        color: black;
+    }
+    40% {
+        color: orange;
+    }
+    70% {
+        color: red;
+    }
+    100% {
+        color: green;
+    }
+}
 @keyframes expand-contract {
 0% {
     transform: scale(1.3);
@@ -8,6 +22,7 @@
 100% {
     transform: scale(1.3);
 }
+
 }
 .searchField{
     display: flex;
@@ -31,6 +46,9 @@
   box-shadow: 7px 7px 7px 7px gray;
   
 }
+.textField:hover {
+   box-shadow: 0 0 10px 0 red inset, 0 0 10px 4px red;
+}
 button.searchButton{
     display: inline-flex;
     justify-content: center;
@@ -47,19 +65,20 @@ button.searchButton{
     animation: expand-contract 1s infinite;
    transition: 3s;
 }
-.strong {
-    border: 0 solid;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-    outline: 1px solid;
-    outline-color: rgba(red,red, red, red);
-    outline-offset: 0px;
-    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-    .strong:hover {
-    border: 1px solid;
-    box-shadow:inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, 0);
-    outline-color: rgba(red, red, red, red);
-    outline-offset: 15px;
-    text-shadow: 1px 1px 2px white ;
+#videoNums{
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 20px;
+    box-shadow: 7px 6px 7px 7px gray;
+    border-radius: 30px;
+    animation: videoNums-pulse 10s infinite;
 
 }
+#searchNum {
+    box-shadow: 5px 4px 4px 6px gray;
+    margin-left: 10px;
+
+}
+#searchNum:hover {
+    box-shadow: 0 0 10px 0 red inset, 0 0 10px 4px red;
+ }

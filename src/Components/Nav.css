@@ -30,6 +30,7 @@
 }
 .navbar {
     grid-area: header;
+
     display: grid;
     color: white;
     background-color: red;
@@ -45,7 +46,8 @@
     display: grid;
     grid-template-areas: "header header header header header header";
     border: 1.5px solid black;
-    
+    position: sticky;
+    top:5px;
 }
 
 .home-button{
