@@ -18,8 +18,12 @@
 .modal-content {
   width: 500px;
   background-color: #fff;
-  
-
+  box-shadow: 0px 0px 0px 5px black;
+  transition: box-shadow 1s linear;
+  margin: .5em;
+}
+.modal-content:hover {
+  box-shadow: 20px 20px 20px 20px black;
 }
 
 .modal-header,
