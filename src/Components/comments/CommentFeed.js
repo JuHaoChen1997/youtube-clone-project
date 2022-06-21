@@ -1,4 +1,5 @@
 import Comment from "./Comment";
+import "./CommentFeed.css";
 
 function CommentFeed(props) {
   const { comments, deleteCommentHandler, editCommentHandler } = props;
@@ -10,10 +11,13 @@ function CommentFeed(props) {
         index={index}
         deleteCommentHandler={deleteCommentHandler}
         editCommentHandler={editCommentHandler}
+        key={index}
       />
     );
   });
-  return <section>{displayComments}</section>;
+  return (
+    <section className="commentDisplayContainer">{displayComments}</section>
+  );
 }
 
 export default CommentFeed;
