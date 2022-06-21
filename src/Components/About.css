@@ -1,12 +1,50 @@
-.ProjectDesc{
-    text-align:center;
+.ProjectDesc {
+  text-align: center;
 }
-.Member1{
-    font-style: italic;
+.Member1 {
+  font-style: italic;
 }
-.Member2{
-    font-style:italic; 
+.Member2 {
+  font-style: italic;
 }
-.Member3{
-    font-style: italic;
+.Member3 {
+  font-style: italic;
 }
+
+.Entry1 {
+  text-align: center;
+}
+
+.Member1:hover{
+    color: orange;
+}
+
+.Member2:hover{
+    color: orange;
+}
+
+.Member3:hover{
+    color: orange;
+}
+/* .about {
+  background-image: url('https://i.gifer.com/7HHh.gif');
+  background-size: cover;
+} */
+
+/* .about {
+  animation: pulse 6s infinite;
+}
+
+@keyframes pulse {
+  10% {
+    background-color: #fffffc;
+  }
+  50% {
+    background-color: #ff0000;
+  }
+  30%{
+    background-color: #d40000;
+  }
+} */
+
+
