@@ -16,13 +16,19 @@
 }
 
 .prevPage:hover{
-    color: white
+    color: white;
+    transform: scale(1.1) skewX(25deg);
+    transition-duration: 1.5s;
 }
 
 .currentPage:hover{
-    color:white
+    color:white;
+    transform: scale(1.2);
+    transition-duration: 1.5s;
 }
 
  .nextPage:hover{
-    color: white
+    color: white;
+    transform:  scale(1.1) skewX(-25deg);
+    transition-duration: 1.5s;
 }

@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
+import './CommentForm.css';
 
 class CommentForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      userName: "",
-      userComment: "",
+      userName: '',
+      userComment: '',
     };
   }
 
@@ -21,8 +22,8 @@ class CommentForm extends React.Component {
 
   clearInput = () => {
     this.setState({
-      userName: "",
-      userComment: "",
+      userName: '',
+      userComment: '',
     });
   };
 
@@ -31,30 +32,31 @@ class CommentForm extends React.Component {
     const { updateCommentHandler } = this.props;
 
     return (
-      <section className="commentForm">
+      <section className='commentForm'>
         <div>
-          <label for="name">Name </label>
+          <label for='name'>Name </label>
           <input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Name..."
+            id='name'
+            name='name'
+            type='text'
+            placeholder='Name...'
             value={userName}
             onChange={this.handleNameChange}
           />
         </div>
         <div>
-          <label for="comment">Comment </label>
+          <label for='comment'>Comment </label>
           <input
-            id="comment"
-            name="comment"
-            type="text"
-            placeholder="..."
+            id='comment'
+            name='comment'
+            type='text'
+            placeholder='...'
             value={userComment}
             onChange={this.handleCommentChange}
           />
         </div>
         <button
+          className='commentButton'
           onClick={() => {
             updateCommentHandler(userName, userComment);
             this.clearInput();

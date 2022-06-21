@@ -1,26 +1,26 @@
-import React from 'react'
-import './SearchBar.css'
-import Modal from './Modal'
+import React from 'react';
+import './SearchBar.css';
+import Modal from './Modal';
 
 class SearchBar extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      searchInput: "",
-      videoNums: "10",
+      searchInput: '',
+      videoNums: '10',
       show: false,
-    }
+    };
   }
 
   clearInput = () => {
-    this.setState({ searchInput: "" });
+    this.setState({ searchInput: '' });
   };
 
   updateSearchInputHandler = (event) => {
     this.setState({
       searchInput: event.target.value,
-    })
-  }
+    });
+  };
 
   updateVideoNumHandler = (event) => {
     this.setState({
@@ -29,26 +29,26 @@ class SearchBar extends React.Component {
   };
 
   showModal = () => {
-    this.setState({ show: true })
-  }
+    this.setState({ show: true });
+  };
 
   closeButton = () => {
-    this.setState({ show: false })
-  }
+    this.setState({ show: false });
+  };
 
   checkSearchInput = () => {
-    return this.state.searchInput.length >= 20
-  }
+    return this.state.searchInput.length >= 20;
+  };
 
   render() {
-    const { fetchRequestHandler } = this.props
+    const { fetchRequestHandler } = this.props;
 
     return (
       <section className='searchField'>
         <input
-          className="textField"
-          type="text"
-          placeholder="Search..."
+          className='textField'
+          type='text'
+          placeholder='Search...'
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
           autofill={true}
@@ -67,21 +67,23 @@ class SearchBar extends React.Component {
         >
           Search
         </button>
-        <label htmlFor="searchNum">Video Nums</label>
+        <label id='videoNums' htmlFor='searchNum'>
+          Video Nums:
+        </label>
         <input
-          type="number"
-          id="searchNum"
-          name="searchNum"
-          min="5"
-          max="30"
+          type='number'
+          id='searchNum'
+          name='searchNum'
+          min='5'
+          max='30'
           value={this.state.videoNums}
           onChange={this.updateVideoNumHandler}
         />
         {/* <button onClick={() => this.showModal()}>Show Modal</button> */}
         <Modal show={this.state.show} closeButton={this.closeButton} />
       </section>
-    )
+    );
   }
 }
 
-export default SearchBar
+export default SearchBar;
