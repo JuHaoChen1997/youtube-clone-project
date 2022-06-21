@@ -1,12 +1,44 @@
+@keyframes NavWobble {
+    0% {
+        transform: skewX(-10deg);
+    }
+
+    25% {
+        transform: skewX(10deg);
+    }
+
+    50% {
+        transform: skewX(-10deg);
+    }
+
+    75% {
+        transform: skewX(10deg);
+    }
+
+    100% {
+        transform: skewX(-10deg);
+    }
+}
+
+
+.logo{
+    padding-left: 15px;
+    transition: transform .9s ease-in-out;
+}
+.logo:hover {
+    transform: rotate(360deg);
+}
 .navbar {
-  grid-area: header;
-  display: grid;
-  color: white;
-  background-color: red;
-  text-align: left;
-  grid-template-columns: repeat(10, 1fr);
-  grid-auto-rows: minmax(20px, auto);
-  grid-auto-flow: column;
+    grid-area: header;
+
+    display: grid;
+    color: white;
+    background-color: red;
+    text-align: left;
+    grid-template-columns: repeat(10, 1fr);
+    grid-auto-rows: minmax(20px, auto);
+    grid-auto-flow: column;
+    box-shadow: 20px 10px 20px 10px gray;
 }
 .main {
   display: grid;
@@ -15,12 +47,23 @@
   position: sticky;
   top: 0;
 }
-.home-button {
-  padding-left: 25px;
-  color: white;
-  text-decoration: black underline;
+
+.home-button{
+    padding-left: 25px;
+    color: var(--primary-color);
+    text-decoration: black underline;
+   
 }
-.about-button {
-  color: white;
-  text-decoration: black underline;
+.about-button{
+    color: var(--primary-color);
+    text-decoration: black underline;
+
+}
+.home-button:hover {
+    animation: NavWobble 1s ease-out;
+    animation-iteration-count: infinite
+}
+.about-button:hover {
+    animation: NavWobble  1s ease-out;
+    animation-iteration-count: infinite
 }

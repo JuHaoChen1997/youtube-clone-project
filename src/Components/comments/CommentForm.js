@@ -1,4 +1,5 @@
 import React from "react";
+import "./CommentForm.css";
 
 class CommentForm extends React.Component {
   constructor() {
@@ -9,16 +10,25 @@ class CommentForm extends React.Component {
     };
   }
 
+  /**
+   * Update the state with user input username
+   */
   handleNameChange = (event) => {
     const { value } = event.target;
     this.setState({ userName: value });
   };
 
+  /**
+   * Update the state with user input comment
+   */
   handleCommentChange = (event) => {
     const { value } = event.target;
     this.setState({ userComment: value });
   };
 
+  /**
+   * Clear the user's input on name and comment after user clicked on Submit button
+   */
   clearInput = () => {
     this.setState({
       userName: "",
@@ -32,9 +42,12 @@ class CommentForm extends React.Component {
 
     return (
       <section className="commentForm">
-        <div>
-          <label for="name">Name </label>
+        <div className="nameInput">
+          <label for="name" className="name">
+            Name{" "}
+          </label>
           <input
+            className="nameInputBar"
             id="name"
             name="name"
             type="text"
@@ -44,8 +57,11 @@ class CommentForm extends React.Component {
           />
         </div>
         <div>
-          <label for="comment">Comment </label>
+          <label for="comment" className="comment">
+            Comment{" "}
+          </label>
           <input
+            className="commentInputBar"
             id="comment"
             name="comment"
             type="text"
@@ -55,6 +71,7 @@ class CommentForm extends React.Component {
           />
         </div>
         <button
+          className="commentButton"
           onClick={() => {
             updateCommentHandler(userName, userComment);
             this.clearInput();

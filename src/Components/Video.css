@@ -2,10 +2,19 @@
   padding: 25px;
   padding-left: 25px;
   padding-right: 25px;
-align-content: center;
+  align-content: center;
+  
 }
 .thumbnails {
-  width: 75%;
+  width: 90%;
   height: 55%;
-text-align: center;
+  text-align: center;
+  box-shadow: 15px 9px 15px 9px gray;
+}
+.vidName{
+    color: var(--secondary-color) !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+
 }

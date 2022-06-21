@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Video.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Video.css';
 
 class Video extends React.Component {
   render() {
@@ -8,10 +8,10 @@ class Video extends React.Component {
     const { title, thumbnails, videoId } = this.props.data;
 
     return (
-      <div className="video">
+      <div className='video'>
         <Link to={`/videos/${videoId}`}>
-          <img className="thumbnails" src={thumbnails} alt={videoId} />
-          <p>{title}</p>
+          <img className='thumbnails' src={thumbnails} alt={videoId} />
+          <p className='vidName'>{title}</p>
         </Link>
       </div>
     );

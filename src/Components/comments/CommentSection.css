@@ -1,4 +1,10 @@
 .commentSection {
     border: 2px solid black;
-    width: 80%
+    margin-top: 30px;
+    width: 80%;
+    background-color: rgb(0,103,163);
+}
+
+.numOfComments{
+    text-indent: 1rem;
 }

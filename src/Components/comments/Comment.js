@@ -1,5 +1,6 @@
 import React from "react";
 import Edit from "./Edit";
+import "./Comment.css";
 
 class Comment extends React.Component {
   constructor() {
@@ -7,6 +8,9 @@ class Comment extends React.Component {
     this.state = { edit: false };
   }
 
+  /**
+   * Edit the previous comment
+   */
   editHandler = () => {
     this.setState({
       edit: !this.state.edit,
@@ -18,19 +22,27 @@ class Comment extends React.Component {
     const { index, deleteCommentHandler, editCommentHandler } = this.props;
 
     return (
-      <section>
-        <h4>Post Time: {timeStamp}</h4>
-        <h4>UserName: {userName}</h4>
-        <p>Comment: {comment}</p>
+      <section className="commentBox">
+        <h4 className="time">
+          <span>Post Time:</span> {timeStamp}
+        </h4>
+        <h4 className="userName">
+          <span>UserName:</span> {userName}
+        </h4>
+        <p className="comment">
+          <span>Comment: </span>
+          {comment}
+        </p>
         <button
+          className="deleteButton"
           onClick={() => {
             deleteCommentHandler(index);
           }}
         >
           Delete
         </button>
-        <button onClick={this.editHandler}>
-          {this.state.edit ? "Close Edit" : "Edit"}
+        <button className="editButton" onClick={this.editHandler}>
+          {this.state.edit ? "Close" : "Edit"}
         </button>
         {this.state.edit ? (
           <Edit index={index} editCommentHandler={editCommentHandler} />

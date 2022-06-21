@@ -4,9 +4,8 @@ function About() {
     <div className='about'>
       <section>
         <h1 className='ProjectDesc'>Project Description</h1>
-        <p className='Entry1'>
-          This Youtube clone project created by Juhao, Hermanclyde, and Lily
-        </p>
+
+        <p className='Entry1'></p>
       </section>
       <br />
       <br />
@@ -17,12 +16,7 @@ function About() {
         <a className='Member1' href={'https://github.com/JuHaoChen1997'}>
           GitHub
         </a>
-        <p>
-          An aspiring software engineer of Pursuit's 8.3 cohort, I love to code
-          and solve challenging problems. I'm currently perfecting my skills and
-          am training to become a software engineer to solve real-world
-          problems. When I'm not coding, I enjoy drawing and listening to music.
-        </p>
+        <p></p>
       </article>
       <hr />
       <article className='herman-bio'>
@@ -32,12 +26,7 @@ function About() {
         <a className='Member2' href={' https://github.com/HC-Guerrero'}>
           GitHub
         </a>
-        <p>
-          An aspiring software engineer of Pursuit's 8.3 cohort, with a strong
-          passion to enter video game development. I dabble in video game
-          modifications and have a strong inclination towards history,
-          economics, and old school video games.
-        </p>
+        <p></p>
       </article>
       <hr />
       <article className='lily-bio'>
@@ -47,11 +36,7 @@ function About() {
         <a className='Member3' href={'https://github.com/liliwu8'}>
           GitHub
         </a>
-        <p>
-          I am a fullstack software engineer in NYC with a Bachelor of
-          Administrative in Marketing degree. I like to code and solve problems.
-          When I am not coding I like to eat.
-        </p>
+        <p></p>
       </article>
     </div>
   )

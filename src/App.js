@@ -26,42 +26,28 @@ class App extends React.Component {
 
     if (searchInput !== "") {
       fetch(
-        // `https://youtube.googleapis.com/youtube/v3/search?maxResults=10&q=${searchInput}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
         `https://youtube.googleapis.com/youtube/v3/search?maxResults=${videoNum}&q=${searchInput}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
       )
         .then((result) => {
-          return result.json()
+          return result.json();
         })
         .then((data) => {
-          const videos = data.items
+          const videos = data.items;
           youtubeVideos = videos.map((video) => {
             return {
               title: video.snippet.title,
               thumbnails: video.snippet.thumbnails.high.url,
               videoId: video.id.videoId,
-            }
-          })
-          this.setState({ searchedYoutubeVideos: youtubeVideos })
+            };
+          });
+          this.setState({ searchedYoutubeVideos: youtubeVideos });
         })
+        .catch((error) => {
+          console.log(error);
+        });
     } else {
-      this.setState({ searchedYoutubeVideos: [] })
+      this.setState({ searchedYoutubeVideos: [] });
     }
-  }
-
-  /**
-   *
-   * @param {String} videoId
-   * @param {String} userName
-   * @param {String} userComment
-   */
-  updateComments = (videoId, userName, userComment) => {
-    console.log("update comment");
-    const comment = { videoId, userName, userComment };
-
-    const copyOfComments = this.state.comments;
-    this.setState({
-      comments: [...copyOfComments, comment],
-    });
   };
 
   render() {
@@ -85,9 +71,6 @@ class App extends React.Component {
             element={
               <ShowVideo
                 searchedYoutubeVideos={this.state.searchedYoutubeVideos}
-                comments={this.state.comments}
-                updateComments={this.updateComments}
-                deleteComment={this.deleteComment}
               />
             }
           />
