@@ -1,0 +1,28 @@
+.commentBox{
+    border: 2px dashed whitesmoke;
+    margin-bottom: 20px;
+}
+
+.time,.userName,.comment{
+ width: 90%;
+ margin-left: 20px;
+ margin-top: 10px;
+ color: whitesmoke
+}
+
+span{
+    font-size: 22px;
+}
+
+.deleteButton,.editButton{
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 12px;
+    align-items: center;
+    height: 35px;
+    width: 100px;
+    background-color: pink ;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 24px;
+}

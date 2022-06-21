@@ -1,19 +1,19 @@
-import React from 'react';
-import './SearchBar.css';
-import Modal from './Modal';
+import React from "react";
+import "./SearchBar.css";
+import Modal from "./Modal";
 
 class SearchBar extends React.Component {
   constructor() {
     super();
     this.state = {
-      searchInput: '',
-      videoNums: '10',
+      searchInput: "",
+      videoNums: "10",
       show: false,
     };
   }
 
   clearInput = () => {
-    this.setState({ searchInput: '' });
+    this.setState({ searchInput: "" });
   };
 
   updateSearchInputHandler = (event) => {
@@ -44,18 +44,18 @@ class SearchBar extends React.Component {
     const { fetchRequestHandler } = this.props;
 
     return (
-      <section className='searchField'>
+      <section className="searchField">
         <input
-          className='textField'
-          type='text'
-          placeholder='Search...'
+          className="textField"
+          type="text"
+          placeholder="Search..."
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
           autofill={true}
         />
         <button
-          type='button'
-          className='searchButton'
+          type="button"
+          className="searchButton"
           onClick={() => {
             if (this.checkSearchInput()) {
               this.showModal();
@@ -67,19 +67,18 @@ class SearchBar extends React.Component {
         >
           Search
         </button>
-        <label id='videoNums' htmlFor='searchNum'>
+        <label id="videoNums" htmlFor="searchNum">
           Video Nums:
         </label>
         <input
-          type='number'
-          id='searchNum'
-          name='searchNum'
-          min='5'
-          max='30'
+          type="number"
+          id="searchNum"
+          name="searchNum"
+          min="5"
+          max="30"
           value={this.state.videoNums}
           onChange={this.updateVideoNumHandler}
         />
-        {/* <button onClick={() => this.showModal()}>Show Modal</button> */}
         <Modal show={this.state.show} closeButton={this.closeButton} />
       </section>
     );
