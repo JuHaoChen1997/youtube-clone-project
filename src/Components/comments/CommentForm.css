@@ -1,0 +1,16 @@
+.commentButton{
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 12px;
+    align-items: center;
+    height: 35px;
+    width: 75px;
+    background-color: pink ;
+    color: var(--primary-color);
+    cursor: pointer;
+
+}
+
+.commentButton:hover{
+    transform: skewX(-25deg);
+}
