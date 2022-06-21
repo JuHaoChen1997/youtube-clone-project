@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PathErrorModal from "./PathErrorModal";
 
+//Show user the url path is not correct
 class Error extends React.Component {
   constructor() {
     super();
