@@ -1,4 +1,9 @@
 import './Modal.css';
+/**
+ * the modal error is for the search bar limit length 20 characters. 
+ * @param {boolean} props this is a state that pass as a props
+ * @returns modal box
+ */
 function Modal(props) {
   if (!props.show) {
     return null;
