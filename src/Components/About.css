@@ -1,6 +1,12 @@
+
+
 .ProjectDesc {
   text-align: center;
+  color: black;
+  background: linear-gradient(0deg, white, gray)
 }
+
+
 .Member1 {
   font-style: italic;
 }

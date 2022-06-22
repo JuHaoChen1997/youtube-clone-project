@@ -34,4 +34,8 @@
         animation: wobble 1.3s ease-out;
         animation-iteration-count: infinite
     }
-    
+    #toggleBright:active {
+       box-shadow: inset 2px 2px 7px 7px darkslategray;
+       transform: translate(4px);
+
+    }

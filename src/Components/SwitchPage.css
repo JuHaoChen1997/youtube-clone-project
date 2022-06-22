@@ -13,6 +13,7 @@
     text-align: center;
     padding-top:10px;
     background-color: aqua;
+    box-shadow: 2px 2px 2px 2px gray;
 }
 
 .prevPage:hover{

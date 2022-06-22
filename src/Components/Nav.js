@@ -2,6 +2,15 @@ import React from 'react';
 import './Nav.css';
 import DarkMode from './DarkMode';
 import { Link } from 'react-router-dom';
+/**
+ * Setup for the Navigation bar present at the top of the website. Houses the YT logo, Brightness/Dark Mode button,
+ * and active links to the YT home page and the project's about page.
+ * @returns {img} - Youtube Logo that has an onclick feature to take you back to the homepage.
+ * @returns {h2} Home - Active link that returns to the homepage when clicked.
+ * @returns {h2} About - Active link that leads to the project description and group's about page when clicked.
+ * @returns {button} Toggle Brightness - enables/disables dark background color settings when clicked.
+ *
+ */
 
 class Nav extends React.Component {
   constructor() {

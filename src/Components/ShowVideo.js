@@ -7,9 +7,9 @@ function ShowVideo(props) {
   const videoId = useParams().id;
 
   return (
-    <section>
-      <VideoDetail videoId={videoId} />
-      <CommentSection videoId={videoId} />
+    <section id='videoSection'>
+      <VideoDetail videoId={videoId} id='videoPlayer' />
+      <CommentSection videoId={videoId} id='commentsSection' />
     </section>
   );
 }
