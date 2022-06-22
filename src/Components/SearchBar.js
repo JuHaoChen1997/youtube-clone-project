@@ -31,11 +31,11 @@ class SearchBar extends React.Component {
       videoNums: event.target.value,
     });
   };
-
+//show the modal 
   showModal = () => {
     this.setState({ show: true });
   };
-
+//update state to close button on modal
   closeButton = () => {
     this.setState({ show: false });
   };
@@ -56,7 +56,6 @@ class SearchBar extends React.Component {
           placeholder="Search..."
           value={this.state.searchInput}
           onChange={this.updateSearchInputHandler}
-          autofill={true}
         />
         <button
           type="button"

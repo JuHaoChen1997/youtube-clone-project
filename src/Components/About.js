@@ -1,4 +1,5 @@
 import './About.css'
+//the about page
 function About() {
   return (
     <div className='about'>
