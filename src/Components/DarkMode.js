@@ -1,5 +1,14 @@
 import React from 'react';
 import './DarkMode.css';
+/**
+ * Feature to toggle between light and dark modes for the Youtube webpage. Utilizes local storage
+ * to store the user's selection of light or dark, with the coloring handled by a :root global variable/conditional
+ * present in App.css.
+ * @param {string} dark - conditional for dark mode settings.
+ * @param {string} light - conditional for light mode settings (DEFAULT).
+ * @param {string} toggle - represents which mode is selected or not by the user.
+ * @param theme = is the active theme that the user has selected.
+ */
 const DarkMode = () => {
   const body = document.body;
 

@@ -13,22 +13,26 @@
     text-align: center;
     padding-top:10px;
     background-color: aqua;
+    box-shadow: 2px 2px 2px 2px gray;
 }
 
 .prevPage:hover{
     color: white;
     transform: scale(1.1) skewX(25deg);
     transition-duration: 1.5s;
+    cursor: pointer;
 }
 
 .currentPage:hover{
     color:white;
     transform: scale(1.2);
     transition-duration: 1.5s;
+    cursor: pointer;
 }
 
  .nextPage:hover{
     color: white;
     transform:  scale(1.1) skewX(-25deg);
     transition-duration: 1.5s;
+    cursor: pointer;
 }
