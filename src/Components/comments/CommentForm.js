@@ -57,7 +57,7 @@ class CommentForm extends React.Component {
           />
         </div>
         <div>
-          <label for="comment" className="comment">
+          <label for="comment" className="commentLabel">
             Comment{" "}
           </label>
           <input

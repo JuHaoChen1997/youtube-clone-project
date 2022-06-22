@@ -1,6 +1,7 @@
 import React from "react";
 import "./SwitchPage.css";
 
+//Allows user to switch between different pages, either go to previous page or go to next page
 class SwitchPage extends React.Component {
   render() {
     const { updatePageNum, videoListArrayLength, pageNum } = this.props;

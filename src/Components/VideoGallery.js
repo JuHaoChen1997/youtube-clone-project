@@ -1,7 +1,7 @@
-import React from 'react';
-import Video from './Video';
-import './VideoGallery.css';
-import SwitchPage from './SwitchPage';
+import React from "react";
+import Video from "./Video";
+import "./VideoGallery.css";
+import SwitchPage from "./SwitchPage";
 
 class VideoGallery extends React.Component {
   constructor() {
@@ -11,14 +11,19 @@ class VideoGallery extends React.Component {
     };
   }
 
-  //switch the page num
+  /**
+   *The page number will be updated according to the operation of go to previous page or
+   *go to next page.
+   * @param {String} operation - operation of go to previous page or next page
+   * @param {Number} videoListArrayLength - the length of total videos
+   */
   updatePageNum = (operation, videoListArrayLength) => {
     let currentPage = this.state.pageNum;
-    if (operation === 'prevPage') {
+    if (operation === "prevPage") {
       if (currentPage - 1 >= 1) {
         currentPage--;
       }
-    } else if (operation === 'nextPage') {
+    } else if (operation === "nextPage") {
       if (currentPage * 10 < videoListArrayLength) {
         currentPage++;
       }
@@ -43,14 +48,15 @@ class VideoGallery extends React.Component {
 
     return (
       <>
-        <section className='noSearch'>
+        {/* If no search result, display the error */}
+        <section className="noSearch">
           {searchedYoutubeVideos.length === 0 ? (
-            <strong className='strong'>
+            <strong className="strong">
               <p>No videos searched yet!</p>
             </strong>
           ) : null}
         </section>
-        <section className='videoDisplay'>{videoDisplay}</section>
+        <section className="videoDisplay">{videoDisplay}</section>
         {videoDisplay.length > 0 ? (
           <SwitchPage
             updatePageNum={this.updatePageNum}

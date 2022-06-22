@@ -12,16 +12,20 @@ class SearchBar extends React.Component {
     };
   }
 
+  //Clear the user input after clicked search button
   clearInput = () => {
     this.setState({ searchInput: "" });
   };
 
+  //update the user typed search input into the state
   updateSearchInputHandler = (event) => {
     this.setState({
       searchInput: event.target.value,
     });
   };
 
+  //update the user typed video numbers into the state, video number means how many
+  //video gonna be returned from api fetch
   updateVideoNumHandler = (event) => {
     this.setState({
       videoNums: event.target.value,
@@ -36,6 +40,7 @@ class SearchBar extends React.Component {
     this.setState({ show: false });
   };
 
+  //check user typed search input doesn't exceed character limit
   checkSearchInput = () => {
     return this.state.searchInput.length >= 20;
   };

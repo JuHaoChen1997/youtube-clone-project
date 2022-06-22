@@ -1,4 +1,5 @@
 import React from "react";
+import "./Edit.css";
 
 class Edit extends React.Component {
   constructor() {
@@ -27,13 +28,15 @@ class Edit extends React.Component {
     const { index, editCommentHandler } = this.props;
 
     return (
-      <div>
+      <div className="editSection">
         <input
+          className="edit"
           type="text"
           value={this.state.input}
           onChange={this.inputHandler}
         />
         <button
+          className="editButton"
           onClick={() => {
             editCommentHandler(index, this.state.input);
             this.clearInput();
